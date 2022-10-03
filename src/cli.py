@@ -24,7 +24,7 @@ def get_cmd_args(args: List[str] = None):
     parser = argparse.ArgumentParser(
         prog="python3 -m motan.cli",
         description="Find the security vulnerabilities of a mobile application "
-                    "without needing its source code.",
+        "without needing its source code.",
     )
     parser.add_argument(
         "app_file",
@@ -37,7 +37,7 @@ def get_cmd_args(args: List[str] = None):
         "--language",
         choices=languages,
         help="The language used for the vulnerabilities. "
-             f"Allowed values are: {', '.join(languages)}",
+        f"Allowed values are: {', '.join(languages)}",
         default="en",
     )
     parser.add_argument(
@@ -45,7 +45,7 @@ def get_cmd_args(args: List[str] = None):
         "--ignore-libs",
         action="store_true",
         help="Ignore known third party libraries during the vulnerability analysis "
-             "(only for Android)",
+        "(only for Android)",
     )
     parser.add_argument(
         "--fail-fast",
@@ -59,7 +59,7 @@ def get_cmd_args(args: List[str] = None):
         metavar="TIMEOUT",
         default=1200,
         help="Make the analysis fail if it takes longer than timeout (in seconds) "
-             "to complete. By default a timeout of 1200 seconds (20 minutes) is used",
+        "to complete. By default a timeout of 1200 seconds (20 minutes) is used",
     )
     parser.add_argument(
         "--keep-files",
@@ -84,7 +84,7 @@ def main():
         arguments.language = arguments.language.strip(" '\"")
 
     if arguments.generate_report:
-        os.makedirs('results', exist_ok=True)
+        os.makedirs("results", exist_ok=True)
 
     vuln_json_dict = perform_analysis_with_timeout(
         arguments.app_file,

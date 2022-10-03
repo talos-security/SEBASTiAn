@@ -81,7 +81,9 @@ class WebViewInterceptRequest(categories.ICodeVulnerability):
                                 register_analyzer.load_instructions(
                                     method.get_instructions()
                                 )
-                                results = register_analyzer.get_all_possible_return_values()
+                                results = (
+                                    register_analyzer.get_all_possible_return_values()
+                                )
 
                                 # 0 means that null was returned.
                                 for result in results:

@@ -18,20 +18,23 @@ from motan.taint_analysis import TaintAnalysis
 
 def append_vulnerabilities(vulnerability_type, vuln_list, details):
     for file in vuln_list:
-        with open(file, 'r') as f:
+        with open(file, "r") as f:
             IDOS_data = json.load(f)
             for item in IDOS_data:
-                details.code.append(vuln.VulnerableCode(vulnerability_type, item["stmt"], item["method"]))
+                details.code.append(
+                    vuln.VulnerableCode(
+                        vulnerability_type, item["stmt"], item["method"]
+                    )
+                )
 
 
 class IDOS_XAS_FI(categories.ICodeVulnerability):
-
     def __init__(self):
         super().__init__()
         self.logger = logging.getLogger(self.__class__.__name__)
 
     def check_vulnerability(
-            self, analysis_info: AndroidAnalysis
+        self, analysis_info: AndroidAnalysis
     ) -> Optional[vuln.VulnerabilityDetails]:
 
         try:
@@ -45,9 +48,15 @@ class IDOS_XAS_FI(categories.ICodeVulnerability):
             APK = analysis_info.get_apk_analysis()
             package = APK.get_package()
             android_jar_path = os.environ.get("ANDROID_JAR_PATH")
-            temp_dir = os.environ.get('IDOS_XAS_FI_TEMP_DIR', os.path.abspath("./results/IDOS_XAS_FI_TEMP_DIR"))
-            results = os.environ.get('IDOS_XAS_FI_RESULTS_DIR', os.path.abspath("./results/IDOS_XAS_FI_RESULTS_DIR"))
-            
+            temp_dir = os.environ.get(
+                "IDOS_XAS_FI_TEMP_DIR",
+                os.path.abspath("./results/IDOS_XAS_FI_TEMP_DIR"),
+            )
+            results = os.environ.get(
+                "IDOS_XAS_FI_RESULTS_DIR",
+                os.path.abspath("./results/IDOS_XAS_FI_RESULTS_DIR"),
+            )
+
             os.makedirs(temp_dir, exist_ok=True)
             os.makedirs(results, exist_ok=True)
 
@@ -56,22 +65,33 @@ class IDOS_XAS_FI(categories.ICodeVulnerability):
                 if platform_name == "Linux":
                     android_jar_path = "/usr/lib/android-sdk/platforms/"
                 elif platform_name == "Windows":
-                    android_jar_path = "C:\\Program Files\\Android\\android-sdk\\platforms\\"
+                    android_jar_path = (
+                        "C:\\Program Files\\Android\\android-sdk\\platforms\\"
+                    )
                 elif platform_name == "Darwin":
                     android_jar_path = f"/Users/{os.environ.get('USER')}/Library/Android/sdk/platforms/"
 
-            jar_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "SootAndro-2.8.jar")
-            java_comand = sh_split(f'java -jar {jar_file} {package} {apk_path} {android_jar_path}')
+            jar_file = os.path.join(
+                os.path.dirname(os.path.realpath(__file__)), "SootAndro-2.8.jar"
+            )
+            java_comand = sh_split(
+                f"java -jar {jar_file} {package} {apk_path} {android_jar_path}"
+            )
 
-            subprocess.call(java_comand, timeout=1000, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.call(
+                java_comand,
+                timeout=1000,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
 
-            IDOS_json = glob.glob(f'{temp_dir}{os.sep}IDOS{os.sep}*.json')
-            XAS_json = glob.glob(f'{temp_dir}{os.sep}XAS{os.sep}*.json')
-            FI_json = glob.glob(f'{temp_dir}{os.sep}FI{os.sep}*.json')
+            IDOS_json = glob.glob(f"{temp_dir}{os.sep}IDOS{os.sep}*.json")
+            XAS_json = glob.glob(f"{temp_dir}{os.sep}XAS{os.sep}*.json")
+            FI_json = glob.glob(f"{temp_dir}{os.sep}FI{os.sep}*.json")
 
-            append_vulnerabilities('IDOS', IDOS_json, details)
-            append_vulnerabilities('XAS', XAS_json, details)
-            append_vulnerabilities('FI', FI_json, details)
+            append_vulnerabilities("IDOS", IDOS_json, details)
+            append_vulnerabilities("XAS", XAS_json, details)
+            append_vulnerabilities("FI", FI_json, details)
 
             # Generate a folder with the app vulnerabilities
             if analysis_info.generate_report:

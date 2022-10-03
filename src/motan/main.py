@@ -74,7 +74,9 @@ def perform_analysis_without_timeout(
     try:
         if platform == "Android":
             manager = AndroidVulnerabilityManager()
-            analysis = AndroidAnalysis(input_app_path, language, ignore_libs, generate_report)
+            analysis = AndroidAnalysis(
+                input_app_path, language, ignore_libs, generate_report
+            )
 
         elif platform == "iOS":
             manager = IOSVulnerabilityManager()

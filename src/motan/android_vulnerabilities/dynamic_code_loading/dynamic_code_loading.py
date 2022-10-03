@@ -13,7 +13,6 @@ from motan.taint_analysis import TaintAnalysis
 
 
 class CustomTaintAnalysis(TaintAnalysis):
-
     def vulnerable_path_found_callback(
         self,
         full_path: List[MethodAnalysis],
@@ -60,10 +59,12 @@ class DynamicCodeLoading(categories.ICodeVulnerability):
 
             for m in dx.get_methods():
                 if (
-                        m.get_method().get_class_name() == "Ldalvik/system/DexClassLoader;" or
-                        m.get_method().get_class_name() == "Ldalvik/system/PathClassLoader;" or
-                        m.get_method().get_class_name() == "Ldalvik/system/InMemoryDexClassLoader" or
-                        m.get_method().get_class_name() == "Ljava/net/URLClassLoader"
+                    m.get_method().get_class_name() == "Ldalvik/system/DexClassLoader;"
+                    or m.get_method().get_class_name()
+                    == "Ldalvik/system/PathClassLoader;"
+                    or m.get_method().get_class_name()
+                    == "Ldalvik/system/InMemoryDexClassLoader"
+                    or m.get_method().get_class_name() == "Ljava/net/URLClassLoader"
                 ):
                     target_methods.append(m)
 

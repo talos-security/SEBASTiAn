@@ -47,7 +47,13 @@ class BaseAnalysis(ABC):
 
 
 class AndroidAnalysis(BaseAnalysis):
-    def __init__(self, apk_path: str, language: str = "en", ignore_libs: bool = False, generate_report: bool = False):
+    def __init__(
+        self,
+        apk_path: str,
+        language: str = "en",
+        ignore_libs: bool = False,
+        generate_report: bool = False,
+    ):
         self.logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
         super().__init__(language)
 

@@ -14,12 +14,11 @@ from motan.taint_analysis import TaintAnalysis
 
 
 class CustomTaintAnalysis(TaintAnalysis):
-
     def __init__(
-            self,
-            target_method: Union[MethodAnalysis, Iterable[MethodAnalysis]],
-            analysis_info: AndroidAnalysis,
-            path_max_length: int = 5,
+        self,
+        target_method: Union[MethodAnalysis, Iterable[MethodAnalysis]],
+        analysis_info: AndroidAnalysis,
+        path_max_length: int = 5,
     ):
         super().__init__(target_method, analysis_info, path_max_length)
         self._get_settings = False
@@ -34,7 +33,6 @@ class CustomTaintAnalysis(TaintAnalysis):
         self._set_allow_universal_access_from_file_url = False
         self._load_data_with_base_url = False
 
-
     def taint_param(self, full_path: List[MethodAnalysis]):
         prev_method = full_path[-1]
         param_tainted_for_method = [1]
@@ -42,74 +40,98 @@ class CustomTaintAnalysis(TaintAnalysis):
             is_param = False
             to_taint_var = -1
             for instruction in method_analysis.get_method().get_instructions():
-                if (
-                        instruction.get_op_value() in [0x6E, 0x71] and
-                        instruction.get_operands()[-1][-1] in str(prev_method)
-                ):
-                    params = method_analysis.get_method().get_information().get("params")
+                if instruction.get_op_value() in [
+                    0x6E,
+                    0x71,
+                ] and instruction.get_operands()[-1][-1] in str(prev_method):
+                    params = (
+                        method_analysis.get_method().get_information().get("params")
+                    )
                     if params:
                         for i in range(len(params)):
-                            if params[i][0] == instruction.get_operands()[param_tainted_for_method[-1]][1]:
+                            if (
+                                params[i][0]
+                                == instruction.get_operands()[
+                                    param_tainted_for_method[-1]
+                                ][1]
+                            ):
                                 param_tainted_for_method.append(i)
                                 is_param = True
                                 break
                     if not params or not is_param:
-                        to_taint_var = instruction.get_operands()[param_tainted_for_method[-1]][1]
+                        to_taint_var = instruction.get_operands()[
+                            param_tainted_for_method[-1]
+                        ][1]
                     break
 
             if not is_param and to_taint_var >= 0:
                 for instruction in method_analysis.get_method().get_instructions():
-                    if 0x12 <= instruction.get_op_value() <= 0x1A and instruction.get_operands()[0][1] == to_taint_var:
+                    if (
+                        0x12 <= instruction.get_op_value() <= 0x1A
+                        and instruction.get_operands()[0][1] == to_taint_var
+                    ):
                         if instruction.get_operands()[1][1] == 0x1:
                             return True
                 return False
 
             prev_method = method_analysis
 
-
     def vulnerable_path_found_callback(
-            self,
-            full_path: List[MethodAnalysis],
-            caller: MethodAnalysis = None,
-            target: MethodAnalysis = None,
-            last_invocation_params: list = None,
+        self,
+        full_path: List[MethodAnalysis],
+        caller: MethodAnalysis = None,
+        target: MethodAnalysis = None,
+        last_invocation_params: list = None,
     ):
         if (
-                full_path[-1].get_method().get_class_name() == "Landroid/webkit/WebView;" and
-                full_path[-1].get_method().get_descriptor() == "()Landroid/webkit/WebSettings;" and
-                full_path[-1].get_method().get_name() == "getSettings"
+            full_path[-1].get_method().get_class_name() == "Landroid/webkit/WebView;"
+            and full_path[-1].get_method().get_descriptor()
+            == "()Landroid/webkit/WebSettings;"
+            and full_path[-1].get_method().get_name() == "getSettings"
         ):
             self._get_settings = True
 
         elif (
-                full_path[-1].get_method().get_class_name() == "Landroid/webkit/WebSettings;" and
-                full_path[-1].get_method().get_descriptor() == "(Z)V" and
-                full_path[-1].get_method().get_name() == "setJavaScriptEnabled"
+            full_path[-1].get_method().get_class_name()
+            == "Landroid/webkit/WebSettings;"
+            and full_path[-1].get_method().get_descriptor() == "(Z)V"
+            and full_path[-1].get_method().get_name() == "setJavaScriptEnabled"
         ):
-            self._set_javascript_enabled = (len(last_invocation_params) > 0 and last_invocation_params[1] == 1) or self.taint_param(full_path)
+            self._set_javascript_enabled = (
+                len(last_invocation_params) > 0 and last_invocation_params[1] == 1
+            ) or self.taint_param(full_path)
 
         elif (
-                full_path[-1].get_method().get_class_name() == "Landroid/webkit/WebSettings;" and
-                full_path[-1].get_method().get_descriptor() == "(Z)V" and
-                full_path[-1].get_method().get_name() == "setAllowUniversalAccessFromFileURLs"
+            full_path[-1].get_method().get_class_name()
+            == "Landroid/webkit/WebSettings;"
+            and full_path[-1].get_method().get_descriptor() == "(Z)V"
+            and full_path[-1].get_method().get_name()
+            == "setAllowUniversalAccessFromFileURLs"
         ):
-            self._set_allow_universal_access_from_file_url = (len(last_invocation_params) > 0 and last_invocation_params[1] == 1) or self.taint_param(full_path)
+            self._set_allow_universal_access_from_file_url = (
+                len(last_invocation_params) > 0 and last_invocation_params[1] == 1
+            ) or self.taint_param(full_path)
 
         elif (
-                full_path[-1].get_method().get_class_name() == "Landroid/webkit/WebView;" and
-                full_path[-1].get_method().get_descriptor() == "(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V" and
-                full_path[-1].get_method().get_name() == "loadDataWithBaseURL"
+            full_path[-1].get_method().get_class_name() == "Landroid/webkit/WebView;"
+            and full_path[-1].get_method().get_descriptor()
+            == "(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V"
+            and full_path[-1].get_method().get_name() == "loadDataWithBaseURL"
         ):
             self._load_data_with_base_url = True
 
-        if self._get_settings and self._set_javascript_enabled and self._set_allow_universal_access_from_file_url and self._load_data_with_base_url:
+        if (
+            self._get_settings
+            and self._set_javascript_enabled
+            and self._set_allow_universal_access_from_file_url
+            and self._load_data_with_base_url
+        ):
             self.vulnerabilities[
                 f"{caller.class_name}->{caller.name}{caller.descriptor}"
             ] = (
                 f'"{last_invocation_params[0]}"',
                 " --> ".join(
-                    f"{p.class_name}->{p.name}{p.descriptor}"
-                    for p in full_path
+                    f"{p.class_name}->{p.name}{p.descriptor}" for p in full_path
                 ),
             )
 
@@ -120,7 +142,7 @@ class WebViewLoadDataWithBaseUrl(categories.ICodeVulnerability):
         super().__init__()
 
     def check_vulnerability(
-            self, analysis_info: AndroidAnalysis
+        self, analysis_info: AndroidAnalysis
     ) -> Optional[vuln.VulnerabilityDetails]:
         self.logger.debug(f"Checking '{self.__class__.__name__}' vulnerability")
 
@@ -155,8 +177,8 @@ class WebViewLoadDataWithBaseUrl(categories.ICodeVulnerability):
                 dx.get_method_analysis_by_name(
                     "Landroid/webkit/WebView;",
                     "loadDataWithBaseURL",
-                    "(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V"
-                )
+                    "(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V",
+                ),
             ]
 
             taint_analysis = CustomTaintAnalysis(target_methods, analysis_info)

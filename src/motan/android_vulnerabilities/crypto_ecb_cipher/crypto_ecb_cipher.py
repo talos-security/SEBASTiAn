@@ -13,23 +13,33 @@ from motan.taint_analysis import TaintAnalysis
 
 
 class CustomTaintAnalysis(TaintAnalysis):
-
-    def find_params(self, full_path, method, tainted_params, full_path_index, actual_depth, depth):
+    def find_params(
+        self, full_path, method, tainted_params, full_path_index, actual_depth, depth
+    ):
         if actual_depth == depth:
             return False
 
         method_dicts = []
         new_tainted_params = set()
         for i in method.get_instructions():
-            if str(i).startswith("invoke") and str(full_path[full_path_index + 1].get_method().get_name()) in str(i):
+            if str(i).startswith("invoke") and str(
+                full_path[full_path_index + 1].get_method().get_name()
+            ) in str(i):
                 dict_params = {}
                 for param_position in list(tainted_params):
                     param_name = str(i).split(" ")[1:-1][param_position][:-1]
                     reg_int = int(param_name[1:])
                     is_param = False
                     if method.get_information().get("params") is not None:
-                        for param_index in range(len(method.get_information().get("params"))):
-                            if reg_int == method.get_information().get("params")[param_index][0]:
+                        for param_index in range(
+                            len(method.get_information().get("params"))
+                        ):
+                            if (
+                                reg_int
+                                == method.get_information().get("params")[param_index][
+                                    0
+                                ]
+                            ):
                                 new_tainted_params.add(param_index)
                                 is_param = True
                                 break
@@ -42,7 +52,7 @@ class CustomTaintAnalysis(TaintAnalysis):
                 for dict_method in method_dicts:
                     for key in dict_method:
                         if key in str(i):
-                            dict_method[key].append(str(i).split(" ")[-1].strip("\""))
+                            dict_method[key].append(str(i).split(" ")[-1].strip('"'))
                             break
 
         for dict_method in method_dicts:
@@ -51,7 +61,14 @@ class CustomTaintAnalysis(TaintAnalysis):
                     if value == "AES":
                         return True
 
-        if full_path_index > 0 and self.find_params(full_path, full_path[full_path_index - 1].get_method(), new_tainted_params, full_path_index - 1, actual_depth=actual_depth+1, depth=depth):
+        if full_path_index > 0 and self.find_params(
+            full_path,
+            full_path[full_path_index - 1].get_method(),
+            new_tainted_params,
+            full_path_index - 1,
+            actual_depth=actual_depth + 1,
+            depth=depth,
+        ):
             return True
 
         return False
@@ -94,14 +111,20 @@ class CustomTaintAnalysis(TaintAnalysis):
             else:
                 tainted_params = {0}
                 full_path_index = len(full_path) - 2
-                if self.find_params(full_path, full_path[full_path_index].get_method(), tainted_params, full_path_index, actual_depth=0, depth=3):
+                if self.find_params(
+                    full_path,
+                    full_path[full_path_index].get_method(),
+                    tainted_params,
+                    full_path_index,
+                    actual_depth=0,
+                    depth=3,
+                ):
                     self.vulnerabilities[
                         f"{caller.class_name}->{caller.name}{caller.descriptor}"
                     ] = (
                         f'insecure cipher "{last_invocation_params[0]}"',
                         " --> ".join(
-                            f"{p.class_name}->{p.name}{p.descriptor}"
-                            for p in full_path
+                            f"{p.class_name}->{p.name}{p.descriptor}" for p in full_path
                         ),
                     )
 

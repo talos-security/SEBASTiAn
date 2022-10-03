@@ -13,12 +13,11 @@ from motan.taint_analysis import TaintAnalysis
 
 
 class CustomTaintAnalysis(TaintAnalysis):
-
     def __init__(
-            self,
-            target_method: Union[MethodAnalysis, Iterable[MethodAnalysis]],
-            analysis_info: AndroidAnalysis,
-            path_max_length: int = 5,
+        self,
+        target_method: Union[MethodAnalysis, Iterable[MethodAnalysis]],
+        analysis_info: AndroidAnalysis,
+        path_max_length: int = 5,
     ):
         super().__init__(target_method, analysis_info, path_max_length)
         self.my_pid = False
@@ -31,56 +30,74 @@ class CustomTaintAnalysis(TaintAnalysis):
             is_param = False
             to_taint_var = -1
             for instruction in method_analysis.get_method().get_instructions():
-                if (
-                        instruction.get_op_value() in [0x6E, 0x71] and
-                        instruction.get_operands()[-1][-1] in str(prev_method)
-                ):
-                    params = method_analysis.get_method().get_information().get("params")
+                if instruction.get_op_value() in [
+                    0x6E,
+                    0x71,
+                ] and instruction.get_operands()[-1][-1] in str(prev_method):
+                    params = (
+                        method_analysis.get_method().get_information().get("params")
+                    )
                     if params:
                         for i in range(len(params)):
-                            if params[i][0] == instruction.get_operands()[param_tainted_for_method[-1]][1]:
+                            if (
+                                params[i][0]
+                                == instruction.get_operands()[
+                                    param_tainted_for_method[-1]
+                                ][1]
+                            ):
                                 param_tainted_for_method.append(i)
                                 is_param = True
                                 break
                     if not params or not is_param:
-                        to_taint_var = instruction.get_operands()[param_tainted_for_method[-1]][1]
+                        to_taint_var = instruction.get_operands()[
+                            param_tainted_for_method[-1]
+                        ][1]
                     break
 
             if not is_param and to_taint_var >= 0:
                 for instruction in method_analysis.get_method().get_instructions():
-                    if instruction.get_op_value() == 0x1A and instruction.get_operands()[0][1] == to_taint_var:
+                    if (
+                        instruction.get_op_value() == 0x1A
+                        and instruction.get_operands()[0][1] == to_taint_var
+                    ):
                         permission = instruction.get_operands()[1][-1]
-                        if "." in permission and " " not in permission and not permission.startswith(
-                                "android.permission"):
+                        if (
+                            "." in permission
+                            and " " not in permission
+                            and not permission.startswith("android.permission")
+                        ):
                             return True
                 return False
 
             prev_method = method_analysis
 
     def vulnerable_path_found_callback(
-            self,
-            full_path: List[MethodAnalysis],
-            caller: MethodAnalysis = None,
-            target: MethodAnalysis = None,
-            last_invocation_params: list = None,
+        self,
+        full_path: List[MethodAnalysis],
+        caller: MethodAnalysis = None,
+        target: MethodAnalysis = None,
+        last_invocation_params: list = None,
     ):
         if (
-                full_path[-1].get_method().get_name() == "getCallingPid" and
-                full_path[-1].get_method().get_descriptor() == "()I" and
-                full_path[-1].get_method().get_class_name() == "Landroid/os/Binder;"
+            full_path[-1].get_method().get_name() == "getCallingPid"
+            and full_path[-1].get_method().get_descriptor() == "()I"
+            and full_path[-1].get_method().get_class_name() == "Landroid/os/Binder;"
         ):
             self.my_pid = True
 
         elif (
-                full_path[-1].get_method().get_name() == "getCallingUid" and
-                full_path[-1].get_method().get_descriptor() == "()I" and
-                full_path[-1].get_method().get_class_name() == "Landroid/os/Binder;"
+            full_path[-1].get_method().get_name() == "getCallingUid"
+            and full_path[-1].get_method().get_descriptor() == "()I"
+            and full_path[-1].get_method().get_class_name() == "Landroid/os/Binder;"
         ):
             self.my_uid = True
 
         elif self.my_pid and self.my_uid:
-            if (len(last_invocation_params) > 0 and last_invocation_params[1] is not None and not
-            last_invocation_params[1].startswith("android.permission")) or self.taint_param(full_path):
+            if (
+                len(last_invocation_params) > 0
+                and last_invocation_params[1] is not None
+                and not last_invocation_params[1].startswith("android.permission")
+            ) or self.taint_param(full_path):
                 self.vulnerabilities[
                     f"{caller.class_name}->{caller.name}{caller.descriptor}"
                 ] = (
@@ -97,7 +114,7 @@ class EnforcePermission(categories.ICodeVulnerability):
         super().__init__()
 
     def check_vulnerability(
-            self, analysis_info: AndroidAnalysis
+        self, analysis_info: AndroidAnalysis
     ) -> Optional[vuln.VulnerabilityDetails]:
         self.logger.debug(f"Checking '{self.__class__.__name__}' vulnerability")
 
@@ -112,27 +129,30 @@ class EnforcePermission(categories.ICodeVulnerability):
 
             dx = analysis_info.get_dex_analysis()
 
-            classes = ["Landroid/app/Service;", "Landroid/content/Context;", "Landroid/app/Activity;"]
+            classes = [
+                "Landroid/app/Service;",
+                "Landroid/content/Context;",
+                "Landroid/app/Activity;",
+            ]
 
             target_method: List[MethodAnalysis] = [
                 dx.get_method_analysis_by_name(
-                    "Landroid/os/Binder;",
-                    "getCallingPid",
-                    "()I"
+                    "Landroid/os/Binder;", "getCallingPid", "()I"
                 ),
                 dx.get_method_analysis_by_name(
-                    "Landroid/os/Binder;",
-                    "getCallingUid",
-                    "()I"
+                    "Landroid/os/Binder;", "getCallingUid", "()I"
                 ),
             ]
 
             target_method.extend(
-                [dx.get_method_analysis_by_name(
-                    caller,
-                    "enforcePermission",
-                    "(Ljava/lang/String; I I Ljava/lang/String;)V"
-                ) for caller in classes]
+                [
+                    dx.get_method_analysis_by_name(
+                        caller,
+                        "enforcePermission",
+                        "(Ljava/lang/String; I I Ljava/lang/String;)V",
+                    )
+                    for caller in classes
+                ]
             )
 
             taint_analysis = CustomTaintAnalysis(target_method, analysis_info)

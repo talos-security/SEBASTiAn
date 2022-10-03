@@ -13,14 +13,15 @@ from motan.taint_analysis import TaintAnalysis
 
 
 class CustomTaintAnalysis(TaintAnalysis):
-
     def find_params(self, full_path, method, actual_depth, depth):
         if actual_depth == depth:
             return False
 
         method_dicts = []
         for i in method.get_instructions():
-            if str(i).startswith("invoke") and str(full_path[actual_depth + 1].get_method().get_name()) in str(i):
+            if str(i).startswith("invoke") and str(
+                full_path[actual_depth + 1].get_method().get_name()
+            ) in str(i):
                 dict_param = {}
                 for param in str(i).split(" ")[1:-1]:
                     dict_param[param[:-1]] = []
@@ -40,7 +41,12 @@ class CustomTaintAnalysis(TaintAnalysis):
                     if value == "AES":
                         return True
 
-        if actual_depth > 0 and self.find_params(full_path, full_path[actual_depth - 1].get_method(), actual_depth=actual_depth+1, depth=depth):
+        if actual_depth > 0 and self.find_params(
+            full_path,
+            full_path[actual_depth - 1].get_method(),
+            actual_depth=actual_depth + 1,
+            depth=depth,
+        ):
             return True
 
         return False

@@ -14,7 +14,6 @@ from motan.taint_analysis import TaintAnalysis
 
 
 class CustomTaintAnalysis(TaintAnalysis):
-
     def taint_param(self, full_path: List[MethodAnalysis]):
         prev_method = full_path[-1]
         param_tainted_for_method = [1]
@@ -22,24 +21,36 @@ class CustomTaintAnalysis(TaintAnalysis):
             is_param = False
             to_taint_var = -1
             for instruction in method_analysis.get_method().get_instructions():
-                if (
-                        instruction.get_op_value() in [0x6E, 0x71] and
-                        instruction.get_operands()[-1][-1] in str(prev_method)
-                ):
-                    params = method_analysis.get_method().get_information().get("params")
+                if instruction.get_op_value() in [
+                    0x6E,
+                    0x71,
+                ] and instruction.get_operands()[-1][-1] in str(prev_method):
+                    params = (
+                        method_analysis.get_method().get_information().get("params")
+                    )
                     if params:
                         for i in range(len(params)):
-                            if params[i][0] == instruction.get_operands()[param_tainted_for_method[-1]][1]:
+                            if (
+                                params[i][0]
+                                == instruction.get_operands()[
+                                    param_tainted_for_method[-1]
+                                ][1]
+                            ):
                                 param_tainted_for_method.append(i)
                                 is_param = True
                                 break
                     if not params or not is_param:
-                        to_taint_var = instruction.get_operands()[param_tainted_for_method[-1]][1]
+                        to_taint_var = instruction.get_operands()[
+                            param_tainted_for_method[-1]
+                        ][1]
                     break
 
             if not is_param and to_taint_var >= 0:
                 for instruction in method_analysis.get_method().get_instructions():
-                    if 0x12 <= instruction.get_op_value() <= 0x1A and instruction.get_operands()[0][1] == to_taint_var:
+                    if (
+                        0x12 <= instruction.get_op_value() <= 0x1A
+                        and instruction.get_operands()[0][1] == to_taint_var
+                    ):
                         if instruction.get_operands()[1][1] == 0x1:
                             return True
                 return False
@@ -47,13 +58,15 @@ class CustomTaintAnalysis(TaintAnalysis):
             prev_method = method_analysis
 
     def vulnerable_path_found_callback(
-            self,
-            full_path: List[MethodAnalysis],
-            caller: MethodAnalysis = None,
-            target: MethodAnalysis = None,
-            last_invocation_params: list = None,
+        self,
+        full_path: List[MethodAnalysis],
+        caller: MethodAnalysis = None,
+        target: MethodAnalysis = None,
+        last_invocation_params: list = None,
     ):
-        if (len(last_invocation_params) > 0 and last_invocation_params[1] == 1) or self.taint_param(full_path):
+        if (
+            len(last_invocation_params) > 0 and last_invocation_params[1] == 1
+        ) or self.taint_param(full_path):
             # The key is the full method signature where the vulnerable code was
             # found, while the value is a tuple with the signature of the vulnerable
             # target method and the full path leading to the vulnerability.
@@ -73,7 +86,7 @@ class WebViewAllowFileAccess(categories.ICodeVulnerability):
         super().__init__()
 
     def check_vulnerability(
-            self, analysis_info: AndroidAnalysis
+        self, analysis_info: AndroidAnalysis
     ) -> Optional[vuln.VulnerabilityDetails]:
         self.logger.debug(f"Checking '{self.__class__.__name__}' vulnerability")
 
@@ -107,9 +120,9 @@ class WebViewAllowFileAccess(categories.ICodeVulnerability):
                 # if WebView is used.
                 target_sdk = analysis_info.get_apk_analysis().get_target_sdk_version()
                 if (
-                        target_sdk
-                        and int(analysis_info.get_apk_analysis().get_target_sdk_version())
-                        < 30
+                    target_sdk
+                    and int(analysis_info.get_apk_analysis().get_target_sdk_version())
+                    < 30
                 ):
                     class_analysis = dx.get_class_analysis(
                         "Landroid/webkit/WebSettings;"
@@ -125,16 +138,16 @@ class WebViewAllowFileAccess(categories.ICodeVulnerability):
                             # Ignore excluded methods (if any).
                             if analysis_info.ignore_libs:
                                 if any(
-                                        m.get_class_name().startswith(prefix)
-                                        for prefix in analysis_info.ignored_classes_prefixes
+                                    m.get_class_name().startswith(prefix)
+                                    for prefix in analysis_info.ignored_classes_prefixes
                                 ):
                                     continue
 
                             if isinstance(m, EncodedMethod):
                                 for i in m.get_instructions():
                                     if i.get_output().endswith(
-                                            "Landroid/webkit/WebView;->"
-                                            "getSettings()Landroid/webkit/WebSettings;"
+                                        "Landroid/webkit/WebView;->"
+                                        "getSettings()Landroid/webkit/WebSettings;"
                                     ):
                                         # WebSettings was found.
 

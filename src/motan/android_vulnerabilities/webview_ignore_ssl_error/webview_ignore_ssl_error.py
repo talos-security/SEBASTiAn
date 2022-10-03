@@ -23,17 +23,23 @@ class WebViewIgnoreSslError(categories.ICodeVulnerability):
                 return True
 
             if str(i).startswith("invoke"):
-                method_sig = str(i)[str(i).rindex(" ") + 1:]
+                method_sig = str(i)[str(i).rindex(" ") + 1 :]
                 method_class = method_sig.split("->")[0]
 
                 remaining_str = method_sig.split("->")[1]
-                method_name = remaining_str[0:remaining_str.index("(")]
-                method_signature = remaining_str[remaining_str.index("("):]
-                target_method = dx.get_method_analysis_by_name(method_class, method_name, method_signature)
-                if self.analyze_method_rec(dx, target_method.get_method(), actual_depth=actual_depth+1, depth=depth):
+                method_name = remaining_str[0 : remaining_str.index("(")]
+                method_signature = remaining_str[remaining_str.index("(") :]
+                target_method = dx.get_method_analysis_by_name(
+                    method_class, method_name, method_signature
+                )
+                if self.analyze_method_rec(
+                    dx,
+                    target_method.get_method(),
+                    actual_depth=actual_depth + 1,
+                    depth=depth,
+                ):
                     return True
         return False
-
 
     def check_vulnerability(
         self, analysis_info: AndroidAnalysis
@@ -95,7 +101,9 @@ class WebViewIgnoreSslError(categories.ICodeVulnerability):
                                     )
 
                             if not found_proceed:
-                                if self.analyze_method_rec(dx, method, actual_depth=0, depth=3):
+                                if self.analyze_method_rec(
+                                    dx, method, actual_depth=0, depth=3
+                                ):
                                     vulnerable_methods[method.get_class_name()] = (
                                         f"{method.get_name()}{method.get_descriptor()}",
                                         f"{method.get_class_name()}->"
