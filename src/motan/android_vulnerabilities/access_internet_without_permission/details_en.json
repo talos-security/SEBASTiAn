@@ -1,0 +1,11 @@
+{
+  "name": "Accessing the Internet Checking",
+  "description": "This app contains code for Internet accessing but does not have `\"android.permission.INTERNET\"` use-permission in `AndroidManifest.xml`. This may be caused by an app misconfiguration or by a malicious app that tries to access the network interface without having the proper permission.",
+  "remediation": "Please revise the application code and grant the proper permission if needed. If you are not sure about the app behavior, we suggest not to use this application.",
+  "references": {
+    "text": "Further information on connection to the network in the Android ecosystem can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/training/basics/network-ops/connecting.html"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Verifica Implementazione SSL (Componente non sicuro)",
+  "description": "L'applicazione contiene codice che utilizza istanze di socket factory con tutte le verifiche sulla sicurezza SSL disabilitate. Tali socket sono vulnerabili ad attacchi Man-in-the-Middle (MitM).",
+  "remediation": "Dato che tali socket sono generalmente utilizzati in ambienti di sviluppo, si consiglia di rimuovere tutto il codice insicuro e di usare Default SSL Socket Factory.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti l'insicuro SSLSocketFactory possono essere trovate nella documentazione ufficiale [[1]] mentre informazioni sugli attacchi MitM possono essere reperite nel Sans white paper [[2]].",
+    "links": {
+      "1": "http://developer.android.com/reference/android/net/SSLCertificateSocketFactory.html#getInsecure(int, android.net.SSLSessionCache)",
+      "2": "https://www.sans.org/reading-room/whitepapers/threats/ssl-man-in-the-middle-attacks-480"
+    }
+  }
+}

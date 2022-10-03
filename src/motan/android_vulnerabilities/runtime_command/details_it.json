@@ -1,0 +1,4 @@
+{
+  "name": "Verifica Comandi Runtime",
+  "description": "L'applicazione utilizza la funzione critica `Runtime.getRuntime().exec(\"...\")`. Verificare che le seguenti sezioni di codice non rappresentino un rischio."
+}

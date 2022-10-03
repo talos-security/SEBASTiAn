@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Implicit Service",
+  "description": "L'applicazione contiene intenti impliciti per avviare un service. Utilizzare un intent implicito per avviare un service rappresenta un rischio per la sicurezza perché non si può essere sicuri di quale service risponderà all'intent, inoltre l'utente non può vedere quale service viene avviato.",
+  "remediation": "Utilizzare sempre un intent esplicito per avviare un service e **NON** dichiarare intent-filter per i service. A partire da Android 5.0 (API Level 21), il sistema lancia un'eccezione se viene chiamato il metodo `bindService()` con un intent implicito.",
+  "references": {
+    "text": "Ulteriori informazioni su intent impliciti ed espliciti possono essere reperite nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "http://developer.android.com/guide/components/intents-filters.html#Types"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Verifica Implementazione SSL (Host Name in Classi custom)",
+  "description": "L'applicazione contiene HOSTNAME VERIFIER custom che accettano tutti i Common Names (CN). Si tratta di una vulnerabilità critica e permette agli attaccanti di effettuare attacchi MitM utilizzando i loro certificati validi, senza che l'utente se ne accorga. Questo comportamento fa parte della OWASP Mobile TOP 10 Security Risks.",
+  "remediation": "Rimuovere tutto il codice che aggira la validazione dei certificati SSL e si basa su implementazioni di default. La soluzione migliore dipende dall'implementazione, tuttavia per avere alcuni esempi di implementazioni sicure riferirsi alle best practice presentate nel libro \"Android Secure Coding\" [[1]].",
+  "references": {
+    "text": "Ulteriori informazioni sulla sicurezza SSL possono essere reperite nella guida ufficiale per sviluppatori Android [[2]], mentre informazioni riguardanti i rischi per la sicurezza si possono trovare nella OWASP Mobile TOP 10 [[3]].",
+    "links": {
+      "1": "http://www.jssec.org/dl/android_securecoding.pdf",
+      "2": "http://developer.android.com/training/articles/security-ssl.html",
+      "3": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M3-Insecure_Communication"
+    }
+  }
+}

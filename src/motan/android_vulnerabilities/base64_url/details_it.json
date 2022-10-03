@@ -1,0 +1,11 @@
+{
+  "name": "Url Base64",
+  "description": "L'applicazione contiene url in formato Base64. È importante notare che lo scopo della codifica Base64 non è la sicurezza, bensì la trasformazione dei caratteri non compatibili con HTTP, come quelli che possono essere contenuti in username e password, in caratteri compatibili con HTTP.",
+  "remediation": "Revisionare ciascun URL e utilizzare SSL se possibile. Assicurarsi che **TUTTE** le informazioni mostrate e trasmesse tramite HTTP non rappresentino un rischio per la sicurezza, inclusi i cookie di sessione.",
+  "references": {
+    "text": "Per ulteriori informazioni sull'utilizzo di HTTPS e SSL in Android si rimanda alla guida ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/training/articles/security-ssl.html"
+    }
+  }
+}

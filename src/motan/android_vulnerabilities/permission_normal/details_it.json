@@ -1,0 +1,11 @@
+{
+  "name": "Normal ProtectionLevel Permesso Custom",
+  "description": "Almeno una classe dichiarata nel Manifest è protetta da un permesso custom, con un permesso di livello \"normal\" oppure \"default\". Ciò permette ad applicazioni malevole di registrare e ricevere messaggi per quest'applicazione.",
+  "remediation": "Assicurarsi che tali permessi debbano essere esportati, altrimenti settare il livello di protezione a \"signature\" oppure \"signatureOrSystem\". `android:protectionLevel=\"signature\"` assicura che le applicazioni che richiedono un permesso debbano essere firmate con lo stesso certificato dell'applicazione che ha dichiarato il permesso. ",
+  "references": {
+    "text": "Ulteriori informazioni sui differenti livelli di protezione dei permessi possono essere trovate nella guida per sviluppatori Android [[1]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/permissions/index.html"
+    }
+  }
+}

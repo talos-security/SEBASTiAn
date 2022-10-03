@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Permessi Sandbox",
+  "description": "È stato individuato codice che permette l'accesso ai file nella modalità `\"MODE_WORLD_READABLE\"` o `\"MODE_WORLD_WRITEABLE\"` che è stata deprecata dall'API Level 17 e rimossa dall'API Level 24. La creazione di file world-readable o world-writable è molto rischiosa e può creare falle di sicurezza all'interno dell'applicazione.",
+  "remediation": "Si consiglia di rimuovere questa modalità di accesso. L'applicazione dovrebbe utilizzare meccanismi di interazione standard come ContentProvider, BroadcastReceiver e Service.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti questa modalità di accesso possono essere reperite nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE"
+    }
+  }
+}

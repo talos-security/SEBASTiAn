@@ -1,0 +1,11 @@
+{
+  "name": "Android Debug Mode Checking",
+  "description": "DEBUG mode is **ON** (`android:debuggable=\"true\"` in `AndroidManifest.xml`). Debug mode is extremely discouraged in production since malicious users can debug the app and sniff verbose error information through Logcat.",
+  "remediation": "Please set the debuggable flag to FALSE if it is a production application.",
+  "references": {
+    "text": "Further information on debugging Android applications can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/studio/debug/index.html"
+    }
+  }
+}

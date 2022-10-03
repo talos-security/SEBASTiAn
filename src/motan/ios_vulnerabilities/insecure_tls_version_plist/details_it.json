@@ -1,0 +1,11 @@
+{
+  "name": "NSExceptionMinimumTLSVersion",
+  "description": "L'applicazione imposta come valore minimo della versione TLS TLSv1.0 o TLSv1.1, che risultano essere non sicuri.",
+  "remediation": "Impostare almeno la versione TLSv1.2.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]].",
+    "links": {
+      "1": "https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity/nsexceptiondomains"
+    }
+  }
+}

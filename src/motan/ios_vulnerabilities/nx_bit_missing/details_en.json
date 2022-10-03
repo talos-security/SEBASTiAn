@@ -1,0 +1,12 @@
+{
+  "name": "Never eXecute vulnerability",
+  "description": "The binary does not have NX bit set. NX bit offers protection against exploitation of memory corruption vulnerabilities by marking memory page as non-executable. However, iOS never allows an app to execute from writeable memory. You do not need to specifically enable the NX bit because it's always enabled for all third-party code.",
+  "references": {
+    "text": "Further information can be found in [[1]], [[2]] and [[3]].",
+    "links": {
+      "1": "https://discussions.apple.com/thread/250723905",
+      "2": "https://en.wikipedia.org/wiki/NX_bit",
+      "3": "https://security.stackexchange.com/questions/47807/nx-bit-does-it-protect-the-stack/47808"
+    }
+  }
+}

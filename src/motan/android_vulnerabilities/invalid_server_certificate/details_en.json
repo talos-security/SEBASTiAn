@@ -1,0 +1,13 @@
+{
+  "name": "SSL Certificate Verification Checking",
+  "description": "This app **DOES NOT** check the validation of SSL Certificates. It allows self-signed, expired or mismatch CN certificates for SSL connection. This is a critical vulnerability and allows attackers to do MitM attacks without your knowledge. If you are transmitting users' username or password, this sensitive information may be leaked.",
+  "remediation": "Please remove the vulnerable code. Please do not try to create a `X509Certificate` and override `checkClientTrusted`, `checkServerTrusted`, and `getAcceptedIssuers` functions with blank implementations. We strongly suggest you use the existing API instead of creating your own `X509Certificate` class.",
+  "references": {
+    "text": "Further information about this problem and possible countermeasures can be found in: OWASP Mobile TOP 10 [[1]], Android Security Book [[2]] and SEI CERT Coding Standards [[3]].",
+    "links": {
+      "1": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M3-Insecure_Communication",
+      "2": "http://goo.gl/BFb65r",
+      "3": "https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=134807561"
+    }
+  }
+}

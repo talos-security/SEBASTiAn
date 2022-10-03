@@ -1,0 +1,12 @@
+{
+  "name": "KeyStore Protection Checking",
+  "description": "The Keystores below seem **NOT** protected by password. This is a security hazard since malicious users that have physical access to the Keystore file can access the keys and certificates contained in it.",
+  "remediation": "Please provide a valid password for each of the Keystores contained in the app.",
+  "references": {
+    "text": "Further information on the creation and usage of a valid Keystore file can be found in the following example guides [[1], [2]].",
+    "links": {
+      "1": "https://davidtruxall.com/android-certificate-pinning/",
+      "2": "https://infinum.co/the-capsized-eight/securing-mobile-banking-on-android-with-ssl-certificate-pinning"
+    }
+  }
+}

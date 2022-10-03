@@ -1,0 +1,11 @@
+{
+  "name": "NSExceptionRequiresForwardSecrecy",
+  "description": "L'applicazione disabilita il requisito per il quale il server deve supportare il PFS (Perfect Forward Secrecy) attraverso Elliptic Curve Diffie-Hellman Ephemeral (ECDHE).",
+  "remediation": "Abilitare il requisito.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]].",
+    "links": {
+      "1": "https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity/nsexceptiondomains"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Verifica Protezione KeyStore",
+  "description": "I seguenti KeyStore sembrano **NON** essere protetti da password. Ciò rappresenta un rischio per la sicurezza in quanto un utente malevolo con accesso diretto al dispositivo e al file KeyStore potrebbe accedere alle chiave e ai certificati in esso contenuti.",
+  "remediation": "Utilizzare una password valida per ogni KeyStore contenuto nell'applicazione.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti la creazione e l'utilizzo di un file KeyStore valido possono essere reperite nelle seguenti guide [[1], [2]].",
+    "links": {
+      "1": "https://davidtruxall.com/android-certificate-pinning/",
+      "2": "https://infinum.co/the-capsized-eight/securing-mobile-banking-on-android-with-ssl-certificate-pinning"
+    }
+  }
+}

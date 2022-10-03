@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Componenti Esportati Manifest",
+  "description": "Sono stati individuati componenti esportati (ad eccezione del Launcher) per ricevere azioni da applicazioni esterne (`AndroidManifest.xml`). Questi componenti possono essere inizializzati da altre applicazioni e possono essere usati per scopi malevoli.",
+  "remediation": "Impostare l'attributo `exported=\"false\"` per ogni componente esportato oppure proteggere il componente con un permesso custom con livello \"signature\" o superiore (utilizzando l'attributo \"android:permission\").",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti i componenti esportati possono essere trovate nella guida ufficiale per sviluppatori Android [[1]].",
+    "links": {
+      "1": "http://developer.android.com/guide/topics/manifest/provider-element.html#exported"
+    }
+  }
+}

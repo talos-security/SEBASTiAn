@@ -1,0 +1,11 @@
+{
+  "name": "Stringhe Base64",
+  "description": "L'applicazione contiene stringhe in formato Base64. È importante notare che lo scopo della codifica Base64 non è la sicurezza, bensì la trasformazione dei caratteri non compatibili con HTTP, come quelli che possono essere contenuti in username e password, in caratteri compatibili con HTTP.",
+  "remediation": "Revisionare tutte le stringhe codificate in Base64.",
+  "references": {
+    "text": "Ulteriori informazioni sulle implicazioni per la sicurezza derivanti dall'utilizzo della codifica in Base64 possono essere trovate nel paper [[1]].",
+    "links": {
+      "1": "https://www.rsaconference.com/writable/presentations/file_upload/das-203.pdf"
+    }
+  }
+}

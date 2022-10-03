@@ -1,0 +1,11 @@
+{
+  "name": "Permesso non necessario",
+  "description": "È stato individuato il permesso `\"android.permission.ACCESS_MOCK_LOCATION\"` nel Manifest. Questo permesso funziona solo in ambienti simulati ed è deprecato a partire dall'API LEVEL 23.",
+  "remediation": "Rimuovere tale permesso e affidarsi a strategie diverse per simulare la posizione geografica del dispositivo.",
+  "references": {
+    "text": "Per testare l'applicazione e simulare la posizione geografica del dispositivo, consultare la documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/location/strategies.html#MockData"
+    }
+  }
+}

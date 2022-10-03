@@ -1,0 +1,11 @@
+{
+  "name": "Cordova Allow Navigation",
+  "description": "L'app non configura correttamente le opzioni di Navigation Whitelist nel file Cordova `config.xml`. Le opzioni di Navigation Whitelist controllano quali URL (sia file che siti Web) possono essere utilizzati nella WebView. La wildcard può essere utilizzata per autorizzare tutti i domini, sia HTTP che HTTPS, senza alcuna limitazione e pertanto il suo uso non è raccomandato. Una configurazione troppo permissiva infatti potrebbe consentire il caricamento di pagine che utilizzano protocolli non HTTPS o contenuti che provengono da parti esterne non fidate. Per impostazione predefinita, sono consentite le navigazioni solo verso URL di tipo `file://`.",
+  "remediation": "Si prega di limitare gli URL che possono essere visualizzati dalla WebView, specificando in tal modo i domini consentiti o quanto meno il caricamento dei siti Web nella sola modalità HTTPS. Inoltre, è incoraggiato l'uso di una politica di sicurezza dei contenuti (CSP).",
+  "references": {
+    "text": "Ulteriori informazioni possono essere reperite visitando [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

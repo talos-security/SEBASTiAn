@@ -1,0 +1,10 @@
+{
+  "name": "Warning SSL ignorato nella WebView",
+  "description": "Android consente alle app di visualizzare pagine web caricando file HTML/JavaScript in una WebView. Una WebView che carica un file HTML/JavaScript da un server utilizzando SSL/TLS può generare un'eccezione SSL se il server presenta un certificato non corretto o se l'app non si fida dell'autorità di certificazione che ha firmato il certificato per quel server. Android fornisce l'API `WebViewClient` per gestire la comunicazione tra l'app e il server. Uno dei metodi nell'API (`onReceivedSslError`) consente all'app di annullare o procedere con la risposta del server quando si verifica un errore SSL. Se l'app sceglie di procedere con la risposta, l'app è vulnerabile agli attacchi MITM perché un server malevolo può creare un certificato falso e continuare a comunicare con l'app.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebViewClient#onReceivedSslError(android.webkit.WebView, android.webkit.SslErrorHandler, android.net.http.SslError)"
+    }
+  }
+}

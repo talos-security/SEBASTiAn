@@ -1,0 +1,12 @@
+{
+  "name": "Non random initialization vector",
+  "description": "If the provided initialization vector (IV) is not random, then encrypting a particular piece of information with a symmetric key will yield the same result every time encryption is applied to that information with the same symmetric key. An attacker with access to the encrypted information can then infer the actual information by just analyzing and comparing the encrypted results.",
+  "remediation": "Please use a random initialization vector (IV).",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/IvParameterSpec",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Android Debug Mode",
+  "description": "La modalità di DEBUG è **ATTIVATA** (`android:debuggable=\"true\"` in `AndroidManifest.xml`). La modalità de debug è fortemente sconsigliata in produzione in quanto un utente malevolo potrebbe fare il debugging dell'applicazione e ottenere in questo modo informazioni dettagliate sugli errori tramite Logcat.",
+  "remediation": "Impostare il flag debuggable su FALSE se si tratta di un'applicazione in produzione.",
+  "references": {
+    "text": "Ulteriori informazioni sul debugging delle applicazioni Android sono disponibili nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/studio/debug/index.html"
+    }
+  }
+}

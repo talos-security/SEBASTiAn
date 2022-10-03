@@ -1,0 +1,11 @@
+{
+  "name": "Accesso Memoria Esterna",
+  "description": "Sono state trovate API per l'accesso alla memoria esterna. Si consiglia di non salvare nella memoria esterna file rilevanti per la sicurezza.",
+  "remediation": "Revisionare tutti gli accessi alla memoria esterna per identificare eventuali perdite di informazioni critiche.",
+  "references": {
+    "text": "Ulteriori informazioni sul salvataggio di file possono essere trovate nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/training/basics/data-storage/files.html"
+    }
+  }
+}

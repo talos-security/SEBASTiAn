@@ -1,0 +1,13 @@
+{
+  "name": "Restricted Segment",
+  "description": "Questo binario non ha un restricted segment che impedisca il caricamento dinamico di dylib per l'inserimento di codice arbitrario.",
+  "remediation": "Usa le opzioni del compilatore `-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null` per abilitare il segmento restricted.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]], [[2]] e [[3]].",
+    "links": {
+      "1": "https://developpaper.com/ios-application-code-injection-protection/",
+      "2": "https://medium.com/@jon.gabilondo.angulo_7635/how-to-inject-code-into-mach-o-apps-part-i-17ed375f736e",
+      "3": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06j-testing-resiliency-against-reverse-engineering"
+    }
+  }
+}

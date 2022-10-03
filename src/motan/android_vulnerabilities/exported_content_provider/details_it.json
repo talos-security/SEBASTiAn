@@ -1,0 +1,13 @@
+{
+  "name": "Verifica ContentProvider Esportato Manifest",
+  "description": "È stato individuato un ContentProvider esportato e ciò permette alle altre applicazioni di accedervi (`AndroidManifest.xml`).",
+  "remediation": "Impostare l'attributo `exported=\"false\"` per ogni ContentProvider esportato oppure proteggere il componente con un permesso custom con livello \"signature\" o superiore (utilizzando l'attributo \"android:permission\").",
+  "references": {
+    "text": "Ulteriori informazioni possono essere reperite nella guida ufficiale per sviluppatori Android [[1]] mentre esempi di ContentProvider vulnerabili possono essere trovati nei seguenti articoli di blog [[2], [3]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/manifest/provider-element.html#exported",
+      "2": "https://www.nowsecure.com/mobile-security/ebay-android-content-provider-injection-vulnerability.html",
+      "3": "http://blog.trustlook.com/2013/10/23/ebay-android-content-provider-information-disclosure-vulnerability/"
+    }
+  }
+}

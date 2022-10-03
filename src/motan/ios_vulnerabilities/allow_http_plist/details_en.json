@@ -1,0 +1,11 @@
+{
+  "name": "NSExceptionAllowsInsecureHTTPLoads",
+  "description": "The application allows the use of the HTTP protocol.",
+  "remediation": "Disable the exception in `Info.plist` file.",
+  "references": {
+    "text": "Further information can be found in [[1]].",
+    "links": {
+      "1": "https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity/nsexceptiondomains"
+    }
+  }
+}

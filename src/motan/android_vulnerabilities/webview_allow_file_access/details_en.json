@@ -1,0 +1,12 @@
+{
+  "name": "WebView Local File Access Attacks Checking",
+  "description": "Found `setAllowFileAccess(true)` or not set (enabled by default) in WebView. The attackers could inject malicious script into WebView and exploit the opportunity to access local resources. ",
+  "remediation": "This vulnerability can be mitigated by disabling local file system access (which is enabled by default) by setting `yourWebView.getSettings().setAllowFileAccess(false)`. This precaution disables the file system access only. Assets and resources are still accessible using URIs, like `file:///android_asset` and `file:///android_res`. The attackers can still use method `yourWebView.loadUrl(\"file:///data/data/[your_package_name]/[file]\");` to access app's local file.",
+  "references": {
+    "text": "Further information about this problem and possible countermeasures can be found in InfoSecurity Blog post [[1]] and in Android Reference Guide [[2]].",
+    "links": {
+      "1": "https://labs.mwrinfosecurity.com/blog/2012/04/23/adventures-with-android-webviews/",
+      "2": "http://developer.android.com/reference/android/webkit/WebSettings.html#setAllowFileAccess(boolean)"
+    }
+  }
+}

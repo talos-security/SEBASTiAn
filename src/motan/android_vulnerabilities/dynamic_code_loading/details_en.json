@@ -1,0 +1,11 @@
+{
+  "name": "Dynamic Code Loading",
+  "description": "This app contains code that dynamically loads classes from `.jar` and `.apk` files containing a `classes.dex` entry. This can be used to execute code not installed as part of an application. This behavior is a security hazard since malicious code could be loaded and executed in the context of the app.",
+  "remediation": "We strongly suggest you to remove dynamic code loads unless necessary. If this is the case, we suggest to carefully revise all the code loaded and executed.",
+  "references": {
+    "text": "Further information on dynamic loading can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/dalvik/system/DexClassLoader.html"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Numbero basso di iterazioni per la derivazione della chiave di cifratura",
+  "description": "Un numero di iterazioni inferiore a 1000 passato ai costruttori `PBEParameterSpec` e` PBEKeySpec` non è sicuro.",
+  "remediation": "In base alla RFC 2898, si consiglia un minimo di 1000 iterazioni. Ciò aumenterà in modo significativo il costo della ricerca esaustiva delle password, senza un notevole impatto sul costo di derivazione delle singole chiavi.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]] e nel paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/PBEKeySpec.html",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "SSL Implementation Checking (Insecure component)",
+  "description": "Use of `SSLCertificateSocketFactory.createSocket()` without parameters or with an `InetAddress` as the first parameter does not preform hostname verifications by default. Those sockets are vulnerable to Man-in-the-Middle (MitM) attacks.",
+  "remediation": "Verify the server's identity manually after connecting the socket.",
+  "references": {
+    "text": "Further information on the insecure SSLCertificateSocketFactory can be found in the official documentation [[1]] and in the MITRE report [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/net/SSLCertificateSocketFactory.html#createSocket(java.net.InetAddress, int, java.net.InetAddress, int)",
+      "2": "https://www.mitre.org/sites/default/files/publications/pr-16-0202-android-security-analysis-final-report.pdf"
+    }
+  }
+}

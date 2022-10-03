@@ -1,0 +1,11 @@
+{
+  "name": "Utilizzo di API Insicure",
+  "description": "Il binario utilizza alcune API insicure.",
+  "remediation": "Aggiornare le API insicure con API più recenti.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]].",
+    "links": {
+      "1": "https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/BufferOverflows.html#//apple_ref/doc/uid/TP40002577-SW1"
+    }
+  }
+}

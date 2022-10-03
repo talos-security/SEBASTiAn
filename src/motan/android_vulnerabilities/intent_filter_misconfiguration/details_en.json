@@ -1,0 +1,11 @@
+{
+  "name": "AndroidManifest intent-filter Settings Checking",
+  "description": "This app contains misconfiguration in \"intent-filter\" of at least one component of the `AndroidManifest.xml`.",
+  "remediation": "Please verify that each \"intent-filter\" declared in the `AndroidManifest.xml` has at least one \"action\" and no `\"android:exported\"` or `\"android:enabled\"` attribute.",
+  "references": {
+    "text": "Further information on \"intent-filter\" and its configuration can be found on the Android Developer Guide [[1]].",
+    "links": {
+      "1": "http://developer.android.com/guide/topics/manifest/intent-filter-element.html"
+    }
+  }
+}

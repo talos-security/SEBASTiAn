@@ -1,0 +1,12 @@
+{
+  "name": "SSL Implementation Checking (Insecure component)",
+  "description": "This app contains code that relies on instances of socket factory with all SSL security checks disabled, using an optional handshake timeout and SSL session cache. Those sockets are vulnerable to Man-in-the-Middle (MitM) attacks.",
+  "remediation": "Since those sockets are commonly used in development environments, please remove all the insecure code and prefer using Default SSL Socket Factory.",
+  "references": {
+    "text": "Further information on the insecure SSLSocketFactory can be found in the official documentation [[1]] while information on the MitM can be found on Sans white paper [[2]].",
+    "links": {
+      "1": "http://developer.android.com/reference/android/net/SSLCertificateSocketFactory.html#getInsecure(int, android.net.SSLSessionCache)",
+      "2": "https://www.sans.org/reading-room/whitepapers/threats/ssl-man-in-the-middle-attacks-480"
+    }
+  }
+}

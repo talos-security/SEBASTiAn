@@ -1,0 +1,10 @@
+{
+  "name": "Utilizzo funzioni di log",
+  "description": "Il binario potrebbe utlizzare funzioni di log.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]].",
+    "links": {
+      "1": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06i-testing-code-quality-and-build-settings"
+    }
+  }
+}

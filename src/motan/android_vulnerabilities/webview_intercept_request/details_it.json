@@ -1,0 +1,10 @@
+{
+  "name": "Intercettazione richiesta WebView",
+  "description": "Android consente alle app di caricare risorse (ad esempio JavaScript, file CSS ecc.) in una pagina web in una WebView e di controllare le risorse caricate in una pagina web tramite il metodo `shouldInterceptRequest` in `WebViewClient`. Il metodo `shouldInterceptRequest` accetta un'istanza di WebView e la richiesta di risorsa come input e restituisce un oggetto come risposta. Se l'oggetto di risposta restituito è `null`, la WebView viene caricata con la pagina web contenente la risorsa richiesta. Ma se viene restituita una risposta diversa da `null`, la WebView viene caricata con la pagina web contenente la risposta diversa da `null`. Se l'app non convalida le risorse nel metodo `shouldInterceptRequest` di `WebViewClient`, qualsiasi risorsa può essere caricata nella WebView.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView, android.webkit.WebResourceRequest)"
+    }
+  }
+}

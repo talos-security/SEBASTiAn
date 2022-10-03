@@ -1,0 +1,12 @@
+{
+  "name": "WebView Potential XSS Attacks Checking",
+  "description": "Found `\"setJavaScriptEnabled(true)\"` in WebView. Enabling JavaScript exposes to malicious injection of code that would be executed with the same permissions (XSS attacks).",
+  "remediation": "If JavaScript is not necessary for your web page, please disable it (`\"setJavaScriptEnabled(false)\"`). Otherwise, in order to minimize the risk of XSS attacks, carefully review the web page code and sanitize the output presented in the WebView.",
+  "references": {
+    "text": "Further information on XSS attacks can be found in the OWASP documentation [[1]], while a guide for building secure web apps in Android can be found in the official documentation [[2]].",
+    "links": {
+      "1": "https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)",
+      "2": "https://developer.android.com/guide/webapps/webview.html"
+    }
+  }
+}

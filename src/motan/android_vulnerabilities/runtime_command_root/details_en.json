@@ -1,0 +1,11 @@
+{
+  "name": "Runtime Critical Command Checking",
+  "description": "The app requests for \"root\" permission through the command `Runtime.getRuntime().exec(\"su\")`. This behavior could be used either by a benign app to check its execution environment or by a malicious app to gain all the privileges.",
+  "remediation": "Please carefully revise the application in order to identify the expected behavior. If unsure, we strongly suggest not to install this app.",
+  "references": {
+    "text": "Further information on root capabilities can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://source.android.com/security/overview/kernel-security#rooting-devices"
+    }
+  }
+}

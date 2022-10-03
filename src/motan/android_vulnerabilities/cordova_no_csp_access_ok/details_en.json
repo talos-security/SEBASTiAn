@@ -1,0 +1,11 @@
+{
+  "name": "Cordova CSP",
+  "description": "The app does not include a Content Security Policy (CSP). The CSP controls which network requests (e.g., images and XHRs) are allowed to be made (via WebView directly). The CSP is a powerful feature since it allows the filtering of all types of requests that are not configurable using the Network Whitelist options (e.g., `<video>` & WebSockets are not blocked).",
+  "remediation": "Please include a Content Security Policy in your app. Besides, verify the configuration of app Network Whitelist options.",
+  "references": {
+    "text": "Further information can be found at [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

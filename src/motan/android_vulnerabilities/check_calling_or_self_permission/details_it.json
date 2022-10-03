@@ -1,0 +1,11 @@
+{
+  "name": "Chiamata a CheckCallingOrSelfPermission com permissioni custom",
+  "description": "Un componente che utilizza il controllo dei permessi in run-time tramite checkCallingOrSelfPermission per il controllo degli accessi concede il permesso a tutti i componenti se concede il permesso anche una sola volta a un componente che si trova nella stessa applicazione. Si supponga che checkCallingOrSelfPermission sia usato per proteggere un componente che esegue un'operazione sensibile. In questo caso, un componente di un'applicazione dannosa può aumentare i propri privilegi e accedere al componente",
+  "remediation": "",
+  "references": {
+    "text": "Ulteriori informazioni su questo problema e sulle possibili contromisure sono disponibili nella Guida di riferimento di Android [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Context.html#checkCallingOrSelfPermission(java.lang.String)"
+    }
+  }
+}

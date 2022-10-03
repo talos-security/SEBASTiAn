@@ -1,0 +1,10 @@
+{
+  "name": "AndroidManifest Exported Without Prefix Checking",
+  "description": "Found exported components lacking \"android:\" prefix in \"exported\" attribute (`AndroidManifest.xml`).",
+  "references": {
+    "text": "",
+    "links": {
+      "1": "http://blog.curesec.com/article/blog/35.html"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Utilizzo di API di hashing deprecate",
+  "description": "Il binario utilizza alcune funzioni di hashing deprecate.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]] e [[2]].",
+    "links": {
+      "1": "https://developer.apple.com/library/archive/documentation/Security/Conceptual/cryptoservices/GeneralPurposeCrypto/GeneralPurposeCrypto.html",
+      "2": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06e-testing-cryptography"
+    }
+  }
+}

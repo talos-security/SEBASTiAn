@@ -1,0 +1,12 @@
+{
+  "name": "Utilizzo di un sale costante per la derivazione della chiave simmetrica",
+  "description": "Se il sale utilizzato è costante, la chiave simmetrica può essere ricreata da un utente malintenzionato se quest'ultimo ha accesso alla password. Un utente malintenzionato può calcolare preventivamente un dizionario di chiavi simmetriche per password note e utilizzarle per decrittografare le informazioni.",
+  "remediation": "Non utilizzare un sale costante.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]] e nel paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/PBEKeySpec.html",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

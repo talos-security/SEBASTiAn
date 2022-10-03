@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Implementazione SSL (HttpHost)",
+  "description": "L'applicazione utilizza \"HttpHost\", però lo schema di default è `\"HTTP\"` oppure `\"HttpHost.DEFAULT_SCHEME_NAME (HTTP)\"`. Accedere agli URL tramite semplice HTTP rappresenta un rischio per la sicurezza in quanto un utente malevolo potrebbe intercettare e/o modificare i dati trasmessi.",
+  "remediation": "Cambiare lo schema di default a `\"HTTPS\"`.",
+  "references": {
+    "text": "Ulteriori informazioni su HttpHost possono essere trovate nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/org/apache/http/HttpHost.html"
+    }
+  }
+}

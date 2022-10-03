@@ -1,0 +1,11 @@
+{
+  "name": "Getting IMEI and Device ID",
+  "description": "This app has code getting the \"device id (IMEI)\" (using `TelephonyManager.getDeviceId()` ) in order to identify the specific device. This approach has three major drawbacks: i) it is unusable on non-phones devices, ii) it persists across device data wipes, iii) it needs special privilege to be executed (`READ_PHONE_STATE` permission).",
+  "remediation": "We suggest to use different ways of tracking app installations like relying on the \"Installation\" framework.",
+  "references": {
+    "text": "Further information on identifying apps installations and the \"Installation\" framework can be found in the Android Developers Blog [[1]].",
+    "links": {
+      "1": "http://android-developers.blogspot.tw/2011/03/identifying-app-installations.html"
+    }
+  }
+}

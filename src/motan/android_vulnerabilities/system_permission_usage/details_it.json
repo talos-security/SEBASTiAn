@@ -1,0 +1,11 @@
+{
+  "name": "Verifica permessi di sistema nel Manifest",
+  "description": "L'applicazione richiede permessi critici che permettono la gestione del filesystem e dei pacchetti (ad esempio `\"android.permission.MOUNT_FORMAT_FILESYSTEMS\"` e `\"android.permission.INSTALL_PACKAGES\"`). L'utilizzo di questi permessi dovrebbe essere riservato alle sole applicazioni di sistema fornite dal produttore o da Google, altrimenti potrebbe trattarsi di un'applicazione malevola.",
+  "remediation": "Revisionare con attenzione l'utilizzo di questi permessi. Non installare l'applicazione se non si è sicuri di come verranno utilizzati tali permessi.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti i permessi sono disponibili nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/Manifest.permission.html"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "Runtime Command Checking",
+  "description": "This app is using critical function `Runtime.getRuntime().exec(\"...\")`. Please confirm that the following code sections are not harmful."
+}

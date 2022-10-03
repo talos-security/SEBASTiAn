@@ -1,0 +1,11 @@
+{
+  "name": "Chiamata CheckPermission con PID o UID del processo dell'applicazione",
+  "description": "Un componente che utilizza checkPermission per verificare il controllo degli accessi a tempo di esecuzione dovrà ottenere il PID e l'UID del componente chiamante prima di chiamare checkPermission. L'API di Binder fornisce i metodi getCallingPID() e getCallingUID() per determinare rispettivamente il PID e l'UID del componente chiamante. Tuttavia, questi metodi non sempre restituiscono il PID e l'UID chiamanti. All'avvio di un'applicazione, il sistema crea un thread di esecuzione chiamato main. Il sistema non crea un thread separato per ogni istanza di componente. Tutti i componenti che vengono eseguiti nello stesso processo vengono istanziati nel thread principale e le chiamate di sistema a ciascun componente vengono inviate da tale thread. Se Binder.getCallingPID() e Binder.getCallingPID() sono chiamati dal thread principale, non restituiscono il PID e l'UID del processo in cui è in esecuzione il componente chiamante. Al contrario, restituiscono il PID e l'UID del processo in cui è in esecuzione il componente protetto. In questo scenario, se al processo in cui è in esecuzione il componente protetto viene concessa l'autorizzazione, checkPermission ritornerà sempre true. Un componente malevolo può sfruttare questa vulnerabilità per accedere al componente protetto.",
+  "remediation": "",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti questo problema e possibili contromisure possono essere trovate nell'articolo di nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://labs.mwrinfosecurity.com/blog/2012/04/23/adventures-with-android-webviews/"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "Verifica Dangerous ProtectionLevel Permesso nel Manifest",
+  "description": "Il livello di protezione delle seguenti classi è \"dangerous\" e ciò permette alle altre applicazioni di accedere a questo permesso (`AndroidManifest.xml`). L'applicazione dovrebbe dichiarare il permesso con `\"android:protectionLevel\"` settato su \"signature\" oppure \"signatureOrSystem\" in modo che altre applicazioni non possano accedervi. `android:protectionLevel=\"signature\"` assicura che le applicazioni che richiedono un permesso debbano essere firmate con lo stesso certificato dell'applicazione che ha dichiarato il permesso."
+}

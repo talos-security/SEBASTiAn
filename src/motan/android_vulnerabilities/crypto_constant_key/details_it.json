@@ -1,0 +1,12 @@
+{
+  "name": "Chiave di cifratura costante salvata nel codice",
+  "description": "Le app che memorizzano le chiavi di cifratura nel codice sorgente sono vulnerabili perché un utente malintenzionato può recuperare tali chiavi tramite tecniche di reverse engineering. Le app Android possono utilizzare algoritmi di crittografia a blocchi per cifrare le informazioni sensibili utilizzando API di crittografia disponibili in Android. L'API Cipher si aspetta una chiave, se tale chiave utilizzata per la cifratura dei dati viene salvata nel codice sorgente, un utente malintenzionato può accedervi e abusarne.",
+  "remediation": "Non salvare la chiave di cifratura in chiaro nel codice.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]] e nel paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/SecretKeySpec",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

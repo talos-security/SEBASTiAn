@@ -1,0 +1,12 @@
+{
+  "name": "Constant encryption key hardcoded",
+  "description": "Apps that store encryption keys in the source code are vulnerable to forgery attacks and information leaks. Android apps can use block cipher algorithms to encrypt sensitive information using the Cipher API. The Cipher API expects a key, if such a key used for encryption/decryption is saved in the source code, then an attacker can get access to it and abuse it.",
+  "remediation": "Do not hardcode the encryption key in the code.",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/SecretKeySpec",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

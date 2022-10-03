@@ -1,0 +1,11 @@
+{
+  "name": "Cordova Access Origin",
+  "description": "L'app non configura correttamente le opzioni di Network Request Whitelist nel proprio file Cordova `config.xml`. Le opzioni di Network Request Whitelist permettono di limitare la tipologia di richieste di rete consentite (ad esempio, immagini e XHR). L'applicazione Cordova include `<access origin = \"*\">` per impostazione predefinita.",
+  "remediation": "Si prega di limitare le richieste di rete che l'app è autorizzata a effettuare. Per fare ciò, il file di configurazione dovrebbe limitare i domini e sotto-domini a cui è possibile accedere. Se possibile, si consiglia di configurare luna politica di sicurezza dei contenuti (CSP).",
+  "references": {
+    "text": "Ulteriori informazioni possono essere reperite visitando [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

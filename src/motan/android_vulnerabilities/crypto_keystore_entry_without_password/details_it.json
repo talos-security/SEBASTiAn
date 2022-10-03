@@ -1,0 +1,11 @@
+{
+  "name": "Chiave di cifratura accessibile nel keystore",
+  "description": "Le app che archiviano chiavi di cifratura senza alcun parametro di protezione in un keystore accessibile da altre app sono vulnerabili all'esposizione di informazioni sensibili. Il keystore fornisce l'API `setEntry` per memorizzare le chiavi di cifratura. Insieme all'alias e alla chiave, l'API `setEntry` accetta un'istanza di `ProtectionParameter` come argomento per proteggere il contenuto dell'entry nel keystore. Se una chiave è archiviata in un keystore con `null` come argomento di `ProtectionParameter` dell'API `setEntry`, qualsiasi app con accesso al keystore e a conoscenza dell'alias può accedere alla chiave.",
+  "remediation": "Utilizzare un'implementazione di `ProtectionParameter` che faccia uso di password.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/java/security/KeyStore"
+    }
+  }
+}

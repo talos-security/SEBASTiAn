@@ -1,0 +1,11 @@
+{
+  "name": "Cordova Allow Intent",
+  "description": "L'app non configura correttamente le opzioni di Intent Whitelist nel suo file Cordova `config.xml`. Le opzioni di Intent Whitelist controllano quali URL l'app è autorizzata a chiedere al sistema di aprire. Per impostazione predefinita, non sono consentiti URL esterni. Il caricamento di URL HTTP o l'inclusione del filtro wildcard non è raccomandato.",
+  "remediation": "Si prega di limitare gli URL che l'app è autorizzata a chiedere al sistema di aprire, specificando i protocolli consentiti (ad es. SMS, tel o geo). Inoltre, l'uso di filtri con HTTP è scoraggiato.",
+  "references": {
+    "text": "Ulteriori informazioni possono essere reperite visitando [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

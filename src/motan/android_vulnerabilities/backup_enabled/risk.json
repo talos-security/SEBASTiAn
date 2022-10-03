@@ -1,0 +1,15 @@
+{
+  "owasp": [
+    "M7"
+  ],
+  "cvss": {
+    "attack_vector": "Physical",
+    "attack_complexity": "Low",
+    "privileges_required": "Low",
+    "user_interaction": "Required",
+    "scope": "Unchanged",
+    "confidentiality_impact": "High",
+    "integrity_impact": "None",
+    "availability_impact": "None"
+  }
+}

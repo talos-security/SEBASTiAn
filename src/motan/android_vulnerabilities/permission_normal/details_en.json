@@ -1,0 +1,11 @@
+{
+  "name": "AndroidManifest Normal Protection Level of Custom Permission",
+  "description": "At least one class declared in the Android Manifest is protected with a custom permission, declared with a \"normal\" or \"default\" permission level. This allows malicious apps to register and receive messages for this app.",
+  "remediation": "Please make sure these permissions really need to be exported or otherwise change to \"signature\" or \"signatureOrSystem\" protection level. The `android:protectionLevel=\"signature\"` ensures that apps which request a permission must be signed with same certificate as the application that declared the permission. ",
+  "references": {
+    "text": "Further information on the different permission protection levels can be found on the Android Developer Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/permissions/index.html"
+    }
+  }
+}

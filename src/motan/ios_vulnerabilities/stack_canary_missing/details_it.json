@@ -1,0 +1,12 @@
+{
+  "name": "Vulnerabilità StackCanary",
+  "description": "Questo binario non ha un valore canary stack aggiunto allo stack. I canarini stack vengono utilizzati per rilevare e impedire agli exploit di sovrascrivere l'indirizzo di ritorno.",
+  "remediation": "Utilizzare l'opzione `-fstack-protector-all` per abilitare stack canaries.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]] and [[2]].",
+    "links": {
+      "1": "https://link.springer.com/article/10.1007/s10207-018-00425-8",
+      "2": "https://github.com/nowsecure/secure-mobile-development/blob/master/en/ios/implement-protections-against-buffer-overflow-attacks.md"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "External Storage Accessing",
+  "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+  "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+  "references": {
+    "text": "Further information on writing files can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/training/basics/data-storage/files.html"
+    }
+  }
+}

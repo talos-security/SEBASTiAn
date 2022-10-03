@@ -1,0 +1,11 @@
+{
+  "name": "Encryption keys accessible in keystore",
+  "description": "Apps that store encryption keys without any protection parameter in a keystore accessible by other apps are vulnerable to information exposure. Keystore provides `setEntry` API to store a key entry. Along with the alias and the key, `setEntry` API takes an instance of `ProtectionParameter` as argument to protect the contents of the entry. If an entry is stored in a keystore with `null` as the `ProtectionParameter` argument to `setEntry` API, then any app with access to the keystore and aware of the alias can retrieve the entry.",
+  "remediation": "Use a password-based implementation of `ProtectionParameter`.",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/java/security/KeyStore"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Intent-Related Vulnerabilities",
+  "description": "Potentially unsafe uses of parameters associated with intents have been found.",
+  "remediation": "Be sure to verify that the propagated parameters are not null or empty.",
+  "references": {
+    "text": "More information on using intents can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Intent"
+    }
+  }
+}

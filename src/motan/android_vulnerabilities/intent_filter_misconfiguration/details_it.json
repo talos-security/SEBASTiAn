@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Impostazioni intent-filter Manifest",
+  "description": "L'applicazione contiene un errore di configurazione legato all'\"intent-filter\" di almeno un componente di `AndroidManifest.xml`.",
+  "remediation": "Verificare che ciascun \"intent-filter\" dichiarato in `AndroidManifest.xml` abbia almeno una \"action\" e nessun attributo `\"android:exported\"` oppure `\"android:enabled\"`.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti gli \"intent-filter\" e la loro configurazione possono essere reperite nella guida ufficiale per sviluppatori Android [[1]].",
+    "links": {
+      "1": "http://developer.android.com/guide/topics/manifest/intent-filter-element.html"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Unnecessary Permission Checking",
+  "description": "Found `\"android.permission.ACCESS_MOCK_LOCATION\"` permission in the Android Manifest. This permission only works in emulated environments and is deprecated since API LEVEL 23.",
+  "remediation": "Please remove this permission and rely on different mock location strategies.",
+  "references": {
+    "text": "In order to test the application and provide mock location data please refer to the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/location/strategies.html#MockData"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Potenziale injection SQL",
+  "description": "Android consente alle app di salvare i dati in un database locale chiamato SQLite. Le query SQL vengono utilizzate per interagire con il database SQLite. Il metodo `execSQL()` di SQLite consente agli sviluppatori di eseguire query come `INSERT/DELETE/UPDATE` che non restituiscono alcun risultato. Se un'app utilizza input (ad es. input dell'utente tramite interfaccia o dati dal web) per creare un'istruzione SQL da eseguire tramite il metodo `execSQL()`, l'app potrebbe essere vulnerabile ad attacchi di SQL injection.",
+  "remediation": "Assicurarsi di sanitizzare gli input e, se possibile, usare i prepared statements.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti SQLite si possono trovare nella documentazione ufficiale [[1]]",
+    "links": {
+      "1": "https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#execSQL(java.lang.String)"
+    }
+  }
+}

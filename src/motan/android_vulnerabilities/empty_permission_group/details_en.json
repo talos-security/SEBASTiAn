@@ -1,0 +1,11 @@
+{
+  "name": "AndroidManifest PermissionGroup Checking",
+  "description": "Found a user-defined empty permissionGroup in the Android Manifest. Setting the \"permissionGroup\" attribute to an empty value will make the permission definition invalid and no other applications will be able to use the permission.",
+  "remediation": "Please include a non-empty string in the permissionGroup definition.",
+  "references": {
+    "text": "Further information on permissionGroup attribute can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/manifest/permission-element.html#pgroup"
+    }
+  }
+}

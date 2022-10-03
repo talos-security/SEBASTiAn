@@ -1,0 +1,12 @@
+{
+  "name": "Constant salt for symmetric key derivation",
+  "description": "If the salt being used is constant, then the symmetric key can be re-created by an attacker if the attacker has access to the password. An attacker can precompute a dictionary of symmetric keys for known passwords and use them to decrypt information.",
+  "remediation": "Do not use a constant salt.",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/PBEKeySpec.html",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

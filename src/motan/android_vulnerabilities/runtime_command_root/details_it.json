@@ -1,0 +1,11 @@
+{
+  "name": "Verifica Comandi Runtime Critici",
+  "description": "L'applicazione richiede i permessi di \"root\" tramite il comando `Runtime.getRuntime().exec(\"su\")`. Questo comportamento potrebbe essere utilizzato sia da un'applicazione benigna per verificare il suo ambiente di esecuzione, sia da un'applicazione maligna per ottenere tutti i privilegi.",
+  "remediation": "Revisionare con attenzione l'applicazione per identificarne il comportamento. In caso di incertezza, si consiglia di non installare l'applicazione.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti i privilegi di root si possono trovare nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://source.android.com/security/overview/kernel-security#rooting-devices"
+    }
+  }
+}

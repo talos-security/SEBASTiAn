@@ -1,0 +1,10 @@
+{
+  "name": "Binario non cifrato",
+  "description": "Questo binario non è cifrato.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]].",
+    "links": {
+      "1": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06a-platform-overview#encryption-and-data-protection"
+    }
+  }
+}

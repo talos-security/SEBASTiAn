@@ -1,0 +1,11 @@
+{
+  "name": "IMEI e Device ID",
+  "description": "L'applicazione contiene codice per ottenere il \"device id (IMEI)\" (utilizzando `TelephonyManager.getDeviceId()`) allo scopo di identificare dispositivo. Questo approccio ha tre svantaggi: i) non è utilizzabile su dispositivi che non siano telefoni, ii) non cambia quando il dispositivo viene resettato e i dati cancellati, iii) ha bisogno di un permesso speciale per poter funzionare (il permesso `READ_PHONE_STATE`).",
+  "remediation": "Si consiglia di utilizzare metodi alternativi per tener traccia delle installazioni di applicazioni, come ad esempio il framework \"Installation\".",
+  "references": {
+    "text": "Ulteriori informazioni su come tener traccia delle installazioni di applicazioni si possono trovare sull'Android Developers Blog [[1]].",
+    "links": {
+      "1": "http://android-developers.blogspot.tw/2011/03/identifying-app-installations.html"
+    }
+  }
+}

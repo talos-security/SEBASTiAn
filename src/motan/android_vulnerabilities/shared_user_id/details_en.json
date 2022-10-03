@@ -1,0 +1,11 @@
+{
+  "name": "AndroidManifest sharedUserId Checking",
+  "description": "This app uses `sharedUserId` attribute. If this attribute is set to the same value for two or more applications, they will all share the same ID — provided that they are also signed by the same certificate. Application with the same user ID can share permissions, access each other's data and, if desired, run in the same process. If one of the applications is compromised, it can disruptively access to the entire ecosystem.",
+  "remediation": "We suggest not to use sharedUserId feature unless essential for your applications. Please rely on system features, like Intents and Content Providers, for sharing data among applications.",
+  "references": {
+    "text": "Further information can be found in the Android Reference Guide [[1]] and searching for Application Collusion.",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/manifest/manifest-element.html#uid"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Code Signature",
+  "description": "This binary does not have a code signature.",
+  "remediation": "Please sign the binary.",
+  "references": {
+    "text": "Further information can be found in [[1]] and [[2]].",
+    "links": {
+      "1": "https://developer.apple.com/documentation/xcode/using_the_latest_code_signature_format",
+      "2": "https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Verifica Componenti Esportati senza Prefisso",
+  "description": "Sono stati individuati componenti esportati senza il prefisso \"android:\" per l'attributo \"exported\" (`AndroidManifest.xml`).",
+  "references": {
+    "text": "",
+    "links": {
+      "1": "http://blog.curesec.com/article/blog/35.html"
+    }
+  }
+}

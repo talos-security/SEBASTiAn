@@ -1,0 +1,11 @@
+{
+  "name": "WebView carica risorse locali allo smartphone",
+  "description": "Un'applicazione può caricare una pagina Web HTML salvata come stringa utilizzando loadDataWithBaseUrl() con lo schema file baseURL. Poiché la WebView ha il permesso di accedere a tutte le risorse dell'applicazione, anche il codice JavaScript che viene eseguito nel contesto della WebView avrà gli stessi permessi. Se la pagina Web salvata ottiene codice JavaScript da un server malevolo, è possibile abusare di queste autorizzazioni.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]] e nel paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebSettings#setAllowContentAccess(boolean)",
+      "2": "https://people.eecs.berkeley.edu/~daw/papers/bifocals-wisa13.pdf"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "WebView intercept request",
+  "description": "Android allows apps to load resources (e.g, JavaScript, CSS files etc.) in a web page in a WebView, and control the resources being loaded in a webpage via the `shouldInterceptRequest` method in `WebViewClient`. The `shouldInterceptRequest` method takes an instance of WebView and the resource request as input and returns a response object. If the response object returned is `null` then the WebView is loaded with the web page containing the resource that was requested. But if a non-`null` response is returned then the WebView is loaded with the web page containing the non-`null` response. If the app does not validate the resource in `shouldInterceptRequest` method of `WebViewClient`, any resource can be loaded into WebView.",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView, android.webkit.WebResourceRequest)"
+    }
+  }
+}

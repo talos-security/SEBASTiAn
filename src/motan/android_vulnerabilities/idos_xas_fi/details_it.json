@@ -1,0 +1,11 @@
+{
+  "name": "Vulnerabilità Legate ad Intent",
+  "description": "Sono stati trovati utilizzi potenzialmente non sicuri dei parametri associati agli intent.",
+  "remediation": " Assicurarsi di verificare che i parametri propagati non siano nulli o vuoti.",
+  "references": {
+    "text": "Ulteriori informazioni sull'utilizzo degli intent possono essere trovati nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Intent"
+    }
+  }
+}

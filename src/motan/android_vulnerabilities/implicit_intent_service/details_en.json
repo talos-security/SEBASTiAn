@@ -1,0 +1,11 @@
+{
+  "name": "Implicit Service Checking",
+  "description": "The application contains implicit Intents for starting Services. Using an implicit Intent to start a service is a security hazard because you cannot be certain of what service will respond to the intent, and the user cannot see which service starts.",
+  "remediation": "To ensure that your app is secure, always use an explicit Intent when starting a Service and **DO NOT** declare intent filters for your services. Beginning with Android 5.0 (API level 21), the system throws an exception if you call `bindService()` with an implicit Intent.",
+  "references": {
+    "text": "Further information on implicit and explicit Intents can be found in the official documentation [[1]].",
+    "links": {
+      "1": "http://developer.android.com/guide/components/intents-filters.html#Types"
+    }
+  }
+}

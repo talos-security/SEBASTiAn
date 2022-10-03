@@ -1,0 +1,11 @@
+{
+  "name": "Checking Java code execution from WebView",
+  "description": "`\"addJavascriptInterface\"` method was found in the code. Use of this method in a WebView containing untrusted content could allow an attacker to manipulate the host application in unintended ways, executing Java code with the permissions of the host application.",
+  "remediation": "Use extreme care when using `\"addJavascriptInterface\"` method in a WebView which could contain untrusted content.",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebView.html#addJavascriptInterface(java.lang.Object, java.lang.String)"
+    }
+  }
+}

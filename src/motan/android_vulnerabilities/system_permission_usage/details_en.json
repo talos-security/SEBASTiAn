@@ -1,0 +1,11 @@
+{
+  "name": "AndroidManifest System Use Permission Checking",
+  "description": "This app uses critical permissions that allow the management of filesystem and packages (e.g. `\"android.permission.MOUNT_FORMAT_FILESYSTEMS\"` and `\"android.permission.INSTALL_PACKAGES\"`). The use of this permissions should be confined only to system apps by device manufacturer or Google. If not, it may be a malicious app.",
+  "remediation": "Please carefully revise the use of this permissions. If you are uncertain on the usage, please do not install this application.",
+  "references": {
+    "text": "Further information on permissions can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/Manifest.permission.html"
+    }
+  }
+}

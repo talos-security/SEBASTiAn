@@ -1,0 +1,4 @@
+{
+  "name": "Not sufficient code obfuscation",
+  "description": "The app seems not using sufficient code obfuscation."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Runpath Search Path",
+  "description": "Il binario ha Runpath Search Path (@rpath) impostato. In alcuni casi, un utente malintenzionato può abusare di questa funzione per eseguire eseguibili arbitrari per l'esecuzione di codice e l'escalation dei privilegi.",
+  "remediation": "Rimuovere l'opzione dal compilatore `-rpath`.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]] e [[2]].",
+    "links": {
+      "1": "https://blog.krzyzanowskim.com/2018/12/05/rpath-what/",
+      "2": "https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/RunpathDependentLibraries.html"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Cordova Allow Navigation",
+  "description": "The app configures the Navigation Whitelist options to accept HTTPS connections that come from any domain. The Navigation Whitelist options control which URLs (both files and websites) the WebView itself can be navigated to.",
+  "remediation": "Please restrict the URLs that can be rendered in the WebView by specifying the domains allowed. If possible, the app is encouraged to use a Content Security Policy.",
+  "references": {
+    "text": "Further information can be found at [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

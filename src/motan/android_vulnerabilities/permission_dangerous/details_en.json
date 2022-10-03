@@ -1,0 +1,4 @@
+{
+  "name": "AndroidManifest Dangerous ProtectionLevel of Permission Checking",
+  "description": "The protection level of the below classes is \"dangerous\", allowing any other apps to access this permission (`AndroidManifest.xml`). The app should declare the permission with the `\"android:protectionLevel\"` of \"signature\" or \"signatureOrSystem\" so that other apps cannot register and receive messages for this app. `android:protectionLevel=\"signature\"` ensures that apps which request a permission must be signed with the same certificate as the application that declared the permission."
+}

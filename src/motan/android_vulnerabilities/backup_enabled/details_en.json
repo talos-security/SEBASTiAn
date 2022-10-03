@@ -1,0 +1,12 @@
+{
+  "name": "AndroidManifest Adb Backup Checking",
+  "description": "ADB Backup is ENABLED for this app (default: ENABLED). ADB Backup is a good tool for backing up all of your files. If enabled, people with physical access to the device can copy all of the sensitive data of the app. The sensitive data may include lifetime access token, username or password etc.",
+  "remediation": "We suggest to set in the Android Manifest attribute `\"android:allowBackup\"` to \"false\" if the backup capability is not necessary.",
+  "references": {
+    "text": "Further information about this problem and possible countermeasures can be found in blog posts [[1]] and in the Android Reference Guide [[2]].",
+    "links": {
+      "1": "http://nelenkov.blogspot.co.uk/2012/06/unpacking-android-backups.html",
+      "2": "http://developer.android.com/guide/topics/manifest/application-element.html#allowbackup"
+    }
+  }
+}

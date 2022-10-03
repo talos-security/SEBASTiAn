@@ -1,0 +1,11 @@
+{
+  "name": "Verifica esecuzione codice Java da WebView",
+  "description": "È stato individuato nel codice il metodo `\"addJavascriptInterface\"`, l'utilizzo di questo metodo in una WebView con contenuto non attendibile può permettere a un attaccante di manipolare l'applicazione host in modi inaspettati, eseguendo codice Java con i permessi dell'applicazione host.",
+  "remediation": "Assicurarsi di usare con cautela il metodo `\"addJavascriptInterface\"` in una WebView che potrebbe contenere contenuti non attendibili.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebView.html#addJavascriptInterface(java.lang.Object, java.lang.String)"
+    }
+  }
+}

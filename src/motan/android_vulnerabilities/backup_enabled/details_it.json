@@ -1,0 +1,12 @@
+{
+  "name": "Verifica Adb Backup Manifest",
+  "description": "ADB Backup è abilitato per questa applicazione (è abilitato di default). ADB Backup è uno strumento utile per salvare una copia di tutti i file. Se abilitato, chiunque abbia accesso fisico al dispositivo può fare una copia di tutti i dati sensibili dell'applicazione. Tali dati potrebbero contenere token di accesso, username, password ecc.",
+  "remediation": "Si consiglia di impostare l'attributo `\"android:allowBackup\"` a \"false\" nel Manifest nel caso non fosse necessaria la possibilità di eseguire il backup dei dati.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti questo problema e possibili contromisure possono essere trovate nell'articolo di blog [[1]] e nella documentazione ufficiale [2]].",
+    "links": {
+      "1": "http://nelenkov.blogspot.co.uk/2012/06/unpacking-android-backups.html",
+      "2": "http://developer.android.com/guide/topics/manifest/application-element.html#allowbackup"
+    }
+  }
+}

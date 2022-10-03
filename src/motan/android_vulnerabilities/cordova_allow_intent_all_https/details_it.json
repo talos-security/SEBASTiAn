@@ -1,0 +1,11 @@
+{
+  "name": "Cordova Allow Intent",
+  "description": "L'app configura le opzioni di Intent Whitelist per accettare URL in HTTPS da tutti i domini. Le opzioni di Intent Whitelist controllano quali URL l'app è autorizzata a chiedere al sistema di aprire.",
+  "remediation": "Si consiglia di imitare le opzioni di Intent Whitelist ai soli URL autorizzati.",
+  "references": {
+    "text": "Ulteriori informazioni possono essere reperite visitando [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

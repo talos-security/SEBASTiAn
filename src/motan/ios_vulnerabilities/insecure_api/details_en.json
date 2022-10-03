@@ -1,0 +1,11 @@
+{
+  "name": "Insecure API(s) usage",
+  "description": "Binary makes use of insecure API(s).",
+  "remediation": "Update insecure API(s) with newer API(s).",
+  "references": {
+    "text": "Further information can be found in [[1]].",
+    "links": {
+      "1": "https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/BufferOverflows.html#//apple_ref/doc/uid/TP40002577-SW1"
+    }
+  }
+}

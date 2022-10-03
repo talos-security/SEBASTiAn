@@ -1,0 +1,11 @@
+{
+  "name": "App Sandbox Permission Checking",
+  "description": "Found code that allows file access in `\"MODE_WORLD_READABLE\"` or `\"MODE_WORLD_WRITEABLE\"` mode which were deprecated in API Level 17 and removed since API Level 24. Creating world-readable or world-writable files is very dangerous, and likely to cause security holes in applications.",
+  "remediation": "Please remove this access mode. The application should use standard mechanisms for interaction such as ContentProvider, BroadcastReceiver and Service.",
+  "references": {
+    "text": "Further information on this access mode can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE"
+    }
+  }
+}

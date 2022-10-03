@@ -1,0 +1,12 @@
+{
+  "name": "Small iteration count for key derivation",
+  "description": "An iteration count smaller than 1000 passed to `PBEParameterSpec` and `PBEKeySpec` constructors is insecure.",
+  "remediation": "A minimum of 1000 iterations is recommended according to RFC 2898. This will increase the cost of exhaustive search for passwords significantly, without a noticeable impact in the cost of deriving individual keys.",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/PBEKeySpec.html",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

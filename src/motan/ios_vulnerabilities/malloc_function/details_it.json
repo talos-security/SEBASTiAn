@@ -1,0 +1,12 @@
+{
+  "name": "Utilizzo funzione malloc",
+  "description": "Il binario potrebbe utlizzare la funzione `malloc`.",
+  "remediation": "Utilizzare la funzione `calloc` invece che la funzione `malloc`.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]] e [[2]].",
+    "links": {
+      "1": "https://azeria-labs.com/heap-overflows-and-the-ios-kernel-heap/",
+      "2": "https://dev.to/awwsmm/unfixable-ios-vulnerability-affects-7-generations-of-devices-3dg2"
+    }
+  }
+}

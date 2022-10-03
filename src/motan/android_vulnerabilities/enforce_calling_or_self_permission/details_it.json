@@ -1,0 +1,11 @@
+{
+  "name": "Chiamata a EnforceCallingOrSelfPermission con permessi custom",
+  "description": "Un componente che utilizza il controllo dei permessi in run-time tramite enforceCallingOrSelfPermission per il controllo degli accessi, concede i permessi a tutti i componenti se concede i permessi anche una sola volta a un componente che si trova nella stessa app. Se enforceCallingOrSelfPermission viene utilizzato per proteggere un componente che esegue un'operazione sensibile, un componente di un'applicazione malevola può aumentare i propri privilegi e accedere al componente.",
+  "remediation": "",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti questo problema e possibili contromisure possono essere trovate nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Context.html#enforceCallingOrSelfPermission(java.lang.String,%20java.lang.String)"
+    }
+  }
+}

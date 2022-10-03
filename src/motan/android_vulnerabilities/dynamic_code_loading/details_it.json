@@ -1,0 +1,11 @@
+{
+  "name": "Caricamento Codice Dinamico",
+  "description": "L'applicazione contiene codice per caricare dinamicamente classi da file `.jar` e `.apk` contenenti `classes.dex`. Ciò può essere utilizzato per eseguire codice non installato insieme all'applicazione. Questo comportamento rappresenta un rischio per la sicurezza in quanto codice malevolo potrebbe essere caricato ed eseguito nel contesto dell'app.",
+  "remediation": "Si consiglia di rimuovere i caricamenti di codice dinamico a meno che non siano necessari. In tal caso, revisionare con attenzione il codice caricato ed eseguito.",
+  "references": {
+    "text": "Ulteriori informazioni sul caricamento dinamico di codice possono essere trovate nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/dalvik/system/DexClassLoader.html"
+    }
+  }
+}

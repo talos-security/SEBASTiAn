@@ -1,0 +1,11 @@
+{
+  "name": "SSL Implementation Checking (HttpHost)",
+  "description": "This app uses \"HttpHost\", but the default scheme is `\"HTTP\"` or `\"HttpHost.DEFAULT_SCHEME_NAME (HTTP)\"`. Accessing URLs in plain HTTP is a security hazard since a malicious user could intercept and/or modify the exchanged data.",
+  "remediation": "Please change Default Scheme Name to `\"HTTPS\"`.",
+  "references": {
+    "text": "Further information on HttpHost can be found in the official documentation [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/org/apache/http/HttpHost.html"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Codice per invio SMS",
+  "description": "L'applicazione contiene codice per l'invio di SMS (`sendDataMessage`, `sendMultipartTextMessage` oppure `sendTextMessage`). Ciò potrebbe comportare un costo per l'utente se sfruttato in maniera malevola.",
+  "remediation": "Controllare con attenzione se la funzionalità di invio SMS è realmente necessaria, in caso contrario rimuovere il codice non necessario.",
+  "references": {
+    "text": "Ulteriori informazioni sulle API legate agli SMS sono disponibili nella guida ufficiale per sviluppatori Android [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/telephony/SmsManager.html"
+    }
+  }
+}

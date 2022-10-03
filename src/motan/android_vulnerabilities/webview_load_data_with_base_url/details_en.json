@@ -1,0 +1,12 @@
+{
+  "name": "WebView loads local resources",
+  "description": "An application can load a saved HTML web page as a string using loadDataWithBaseUrl() with file scheme baseURL. Since WebView has permission to access all of the app’s resources, JavaScript code executing in the context of WebView will also have the same permissions. If the saved web page sources JavaScript code from a malicious server, these permissions can be abused.",
+  "remediation": "Set WebSettings.setAllowFileAccessFromFileURLs to false",
+  "references": {
+    "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebSettings#setAllowContentAccess(boolean)",
+      "2": "https://people.eecs.berkeley.edu/~daw/papers/bifocals-wisa13.pdf"
+    }
+  }
+}

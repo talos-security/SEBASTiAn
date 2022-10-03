@@ -1,0 +1,10 @@
+{
+  "name": "API Random Insicure",
+  "description": "Il binario utilizza alcune API random insicure.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]].",
+    "links": {
+      "1": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06e-testing-cryptography"
+    }
+  }
+}

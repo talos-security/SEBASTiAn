@@ -1,0 +1,11 @@
+{
+  "name": "Base64 String Encryption",
+  "description": "This app contains Base64 encoded string(s). Please note that security is not the intent of the encoding step. Rather, the intent of the encoding is to encode non-HTTP-compatible characters that may be contained in usernames or passwords into characters that are HTTP-compatible.",
+  "remediation": "Please revise all the encoded strings and ensure a proper level of encryption if needed.",
+  "references": {
+    "text": "Further information on security consequences of Base64 encoding can be found in the following paper [[1]].",
+    "links": {
+      "1": "https://www.rsaconference.com/writable/presentations/file_upload/das-203.pdf"
+    }
+  }
+}

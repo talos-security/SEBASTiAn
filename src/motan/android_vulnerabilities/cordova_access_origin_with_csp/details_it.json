@@ -1,0 +1,11 @@
+{
+  "name": "Cordova Access Origin",
+  "description": "L'app configura le opzioni di Network Request Whitelist per accettare URL HTTP non sicuri. Le opzioni di Network Request Whitelist controllano quali richieste di rete (ad es. Immagini e XHR) possono essere fatte. Il caricamento di URL HTTP o l'inclusione del filtro wildcard non è raccomandato.",
+  "remediation": "Si consiglia di limitare le opzioni della white list richiesta di rete agli URL solo HTTPS e verificare la configurazione della politica di sicurezza del contenuto.",
+  "references": {
+    "text": "Ulteriori informazioni possono essere reperite visitando [[1]].",
+    "links": {
+      "1": "https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/"
+    }
+  }
+}

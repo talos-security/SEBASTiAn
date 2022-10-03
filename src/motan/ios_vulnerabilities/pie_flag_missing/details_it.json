@@ -1,0 +1,13 @@
+{
+  "name": "Vulnerabilità PIE ",
+  "description": "Il binario è costruito senza il flag di PIE. Al fine di impedire a un utente malintenzionato di passare in modo affidabile, ad esempio, ad una particolare funzione in memoria e sfruttarla, la randomizzazione del layout dello spazio degli indirizzi (ASLR) dispone in modo casuale le posizioni dello spazio degli indirizzi e delle aree dati, inclusa la base dell'eseguibile e posizioni di stack, heap e librerie.",
+  "remediation": "Usare durante la compilazione il flag `-fPIC`.",
+  "references": {
+    "text": "Maggiori informazioi si possono trovare in [[1]], [[2]] e [[3]].",
+    "links": {
+      "1": "https://www.usenix.org/system/files/login/articles/105516-Schwartz.pdf",
+      "2": "https://github.com/OWASP/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md",
+      "3": "https://developer.apple.com/library/archive/qa/qa1788/_index.html#/apple_ref/doc/uid/DTS40013354"
+    }
+  }
+}

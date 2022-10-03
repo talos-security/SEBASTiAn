@@ -1,0 +1,11 @@
+{
+  "name": "Weak Hashing APIs",
+  "description": "Binary makes use of some weak hashing API(s).",
+  "references": {
+    "text": "Further information can be found in [[1]] and [[2]].",
+    "links": {
+      "1": "https://developer.apple.com/library/archive/documentation/Security/Conceptual/cryptoservices/GeneralPurposeCrypto/GeneralPurposeCrypto.html",
+      "2": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06e-testing-cryptography"
+    }
+  }
+}

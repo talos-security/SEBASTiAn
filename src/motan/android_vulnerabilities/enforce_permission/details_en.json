@@ -1,0 +1,11 @@
+{
+  "name": "EnforcePermission call with app process PID or UID",
+  "description": "A component that uses enforcePermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling enforcePermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution for the application called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component runs. In such a scenario, if the process in which the protected component is running is granted permission, then enforcePermission will not throw a SecurityException. A malicious component can exploit this vulnerability to access the protected component.",
+  "remediation": "",
+  "references": {
+    "text": "Further information about this problem and possible countermeasures can be found in Android Reference Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Context.html#enforcePermission(java.lang.String,%20int,%20int,%20java.lang.String)"
+    }
+  }
+}

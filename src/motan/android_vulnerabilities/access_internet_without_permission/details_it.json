@@ -1,0 +1,11 @@
+{
+  "name": "Verifica accesso a Internet",
+  "description": "L'applicazione contiene codice per l'accesso a Internet però il permesso `\"android.permission.INTERNET\"` non viene richiesto in `AndroidManifest.xml`. Ciò può essere dovuto a un errore di configurazione oppure può trattarsi di un'applicazione malevola che tenta di accedere all'interfaccia di rete senza avere il permesso adeguato.",
+  "remediation": "Revisionare il codice dell'applicazione e fornire il permesso adeguato, se necessario. In caso di incertezza riguardo al comportamento dell'applicazione, si consiglia di non installarla.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti la connessione alla rete nell'ecosistema Android possono essere reperite nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/training/basics/network-ops/connecting.html"
+    }
+  }
+}

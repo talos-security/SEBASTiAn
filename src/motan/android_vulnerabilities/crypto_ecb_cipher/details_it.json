@@ -1,0 +1,12 @@
+{
+  "name": "Cifratura a blocchi in modalità ECB",
+  "description": "Le app che utilizzano un algoritmo di cifratura a blocchi in modalità ECB per crittografare le informazioni sensibili sono vulnerabili all'esposizione di informazioni. L'API Cipher consente agli sviluppatori di specificare quale algoritmo di cifratura utilizzare e in quale modalità. Se l'app utilizza l'algoritmo di cifratura a blocchi AES in modalità ECB per crittografare le informazioni sensibili, un utente malintenzionato potrebbe rompere la cifratura per ottenere l'accesso alle informazioni sensibili. Si può specificare esplicitamente di voler utilizzare AES in modalità ECB oppure solo AES senza specificare esplicitamente la modalità, in tal caso Android utilizzerà la modalità ECB per impostazione predefinita.",
+  "remediation": "Si consiglia di utilizzare una modalità di crittografia diversa da ECB.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]] e nel paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/Cipher.html",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

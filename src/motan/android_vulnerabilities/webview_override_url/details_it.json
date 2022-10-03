@@ -1,0 +1,10 @@
+{
+  "name": "WebView override url",
+  "description": "Android permette alle app di visualizzare il contenuto web in una WebView e di controllarne la navigazione attraverso le pagine web tramite il metodo `shouldOverrideUrlLoading` in `WebViewClient`. Il metodo `shouldOverrideUrlLoading` accetta un'istanza di WebView e la richiesta della pagina come input e restituisce un valore booleano. Se viene restituito `true`, l'applicazione host gestisce la richiesta, altrimenti se viene restituito `false`, la WebView corrente gestisce la richiesta. Se l'app non convalida la richiesta della pagina in `shouldOverridUrlLoading` prima di caricarla nella WebView, qualsiasi pagina web fornita dal server verrà caricata newlla WebView. Di default `shouldOverrideUrlLoading` restituisce sempre `false`.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView, android.webkit.WebResourceRequest)"
+    }
+  }
+}

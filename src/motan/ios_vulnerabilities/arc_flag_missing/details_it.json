@@ -1,0 +1,11 @@
+{
+  "name": "Automatic Reference Counting",
+  "description": "Il binario non è compilato con il flag ARC (Automatic Reference Counting). ARC è una funzionalità del compilatore che fornisce la gestione automatica della memoria degli oggetti Objective-C ed è un meccanismo di mitigazione degli exploit contro le vulnerabilità che danneggiano della memoria.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]] e [[2]].",
+    "links": {
+      "1": "https://www.hackingwithswift.com/example-code/language/what-is-automatic-reference-counting-arc",
+      "2": "https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html"
+    }
+  }
+}

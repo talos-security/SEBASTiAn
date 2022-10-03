@@ -1,0 +1,11 @@
+{
+  "name": "Verifica connessioni SSL",
+  "description": "L'applicazione contiene URL che **NON** utilizzano SSL. Ciò rappresenta un pericolo per la sicurezza, in quanto le informazioni scambiate con tali URL possono essere intercettate e alterate da un utente malevolo.",
+  "remediation": "Revisionare con attenzione ciascun URL e utilizzare SSL quando possibile. Assicurarsi che **TUTTE** le informazioni mostrate e trasmesse tramite HTTP non rappresentino un rischio per la sicurezza, inclusi i cookie di sessione.",
+  "references": {
+    "text": "Per ulteriori informazioni sull'utilizzo di HTTPS e SSL in Android si rimanda alla guida ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/training/articles/security-ssl.html"
+    }
+  }
+}

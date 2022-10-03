@@ -1,0 +1,11 @@
+{
+  "name": "Verifica PermissionGroup nel Manifest",
+  "description": "È stato trovato un permissionGroup vuoto definito dall'utente nel Manifest. Settando l'attributo \"permissionGroup\" a un valore vuoto, la definizione del permesso risulterà non valida e nessun'altra applicazione potrà utilizzare tale permesso.",
+  "remediation": "Utilizzare una stringa non vuota nella definizione del permissionGroup.",
+  "references": {
+    "text": "Ulteriori informazioni riguardanti l'attributo permissionGroup possono essere reperite nella documentazione ufficiale [[1]].",
+    "links": {
+      "1": "https://developer.android.com/guide/topics/manifest/permission-element.html#pgroup"
+    }
+  }
+}

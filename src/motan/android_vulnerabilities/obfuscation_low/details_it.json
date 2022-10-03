@@ -1,0 +1,4 @@
+{
+  "name": "Basso offuscamento codice",
+  "description": "L'applicazione sembra utilizzare l'offuscamento di codice, tuttavia una parte rilevante di codice sembra non utilizzare alcuna tecnica di offuscamento di codice."
+}

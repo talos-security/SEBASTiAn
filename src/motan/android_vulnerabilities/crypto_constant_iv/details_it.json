@@ -1,0 +1,12 @@
+{
+  "name": "Vettore di inizializzazione non random",
+  "description": "Se il vettore di inizializzazione (IV) non è random, la cifratura di un particolare dato con una chiave simmetrica produrrà lo stesso risultato ogni volta che la cifratura viene applicata a tale dato con la stessa chiave simmetrica. Un utente malintenzionato con accesso alle informazioni crittografate può quindi ricavare i dati originali analizzando e confrontando i risultati crittografati.",
+  "remediation": "Utilizzare un vettore di inizializzazione (IV) random.",
+  "references": {
+    "text": "Ulteriori informazioni si possono trovare nella documentazione ufficiale [[1]] e nel paper [[2]].",
+    "links": {
+      "1": "https://developer.android.com/reference/javax/crypto/spec/IvParameterSpec",
+      "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+    }
+  }
+}

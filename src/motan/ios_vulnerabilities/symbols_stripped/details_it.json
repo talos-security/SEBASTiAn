@@ -1,0 +1,12 @@
+{
+  "name": "Symbols Stripped",
+  "description": "I Simboli sono disponibili.",
+  "remediation": "Per rimuovere i simboli di debug, impostare Rimuovi simboli di debug durante la copia su Sì tramite le impostazioni di compilazione del progetto.",
+  "references": {
+    "text": "Maggiori informazioni possono essere trovate in [[1]] e [[2]].",
+    "links": {
+      "1": "https://www.guardsquare.com/en/blog/ios-app-security-introduction-objective-c-metadata-symbols-swift-objective-c-apps-part-1-2",
+      "2": "https://stackoverflow.com/questions/46077700/what-does-strip-swift-symbols-in-xcode-actually-do/47368306"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Binary not encrypted",
+  "description": "This binary is not encrypted.",
+  "references": {
+    "text": "Further information can be found in [[1]].",
+    "links": {
+      "1": "https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06a-platform-overview#encryption-and-data-protection"
+    }
+  }
+}

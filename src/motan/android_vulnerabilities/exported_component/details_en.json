@@ -1,0 +1,11 @@
+{
+  "name": "AndroidManifest Exported Components Checking",
+  "description": "Found \"exported\" components (except for Launcher) for receiving outside applications' actions (`AndroidManifest.xml`). These components can be initialized by other apps and used maliciously.",
+  "remediation": "Please modify the attribute in each of the exported component to `exported=\"false\"` or protect it with a custom permission with \"signature\" or higher protection level and specify it in \"android:permission\" attribute.",
+  "references": {
+    "text": "Further information on the exported attribute can be found on the Android Developer Guide [[1]].",
+    "links": {
+      "1": "http://developer.android.com/guide/topics/manifest/provider-element.html#exported"
+    }
+  }
+}

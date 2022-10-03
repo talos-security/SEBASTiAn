@@ -1,0 +1,11 @@
+{
+  "name": "EnforceCallingOrSelfPermission call with custom permissions",
+  "description": "A component that uses run-time permission checking via enforceCallingOrSelfPermission for access control grants permission to all components if it grants permission even once to a component that is in the same app as that itself. If enforceCallingOrSelfPermission is used to protect a component that performs a sensitive operation, then a component in a malicious app can escalate its privilege and access the component.",
+  "remediation": "",
+  "references": {
+    "text": "Further information about this problem and possible countermeasures can be found in Android Reference Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/content/Context.html#enforceCallingOrSelfPermission(java.lang.String,%20java.lang.String)"
+    }
+  }
+}

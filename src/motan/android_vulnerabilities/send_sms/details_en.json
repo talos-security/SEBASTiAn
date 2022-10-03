@@ -1,0 +1,11 @@
+{
+  "name": "Code for Sending SMS",
+  "description": "This app has code for sending SMS messages (`sendDataMessage`, `sendMultipartTextMessage` or `sendTextMessage`) that could be a cost for the user if maliciously exploited.",
+  "remediation": "Carefully check whether the SMS capability is needed for the specific app and remove this code if not the case.",
+  "references": {
+    "text": "Further information on the SMS API can be found in the Android Developer Guide [[1]].",
+    "links": {
+      "1": "https://developer.android.com/reference/android/telephony/SmsManager.html"
+    }
+  }
+}
