@@ -4,7 +4,7 @@
 
 [![Build Status](https://github.com/talos-security/SEBASTiAn/workflows/Build/badge.svg)](https://github.com/talos-security/SEBASTiAn/actions?query=workflow%3ABuild)
 
-**SEBASTiAn**: a **S**tatic and **E**xtensible **B**lack-box **A**pplication **S**ecurity **T**esting tool for **i**OS and **An**droid applications s is a platform agnostic and easily extensible modular tool for performing static security assessments of mobile applications.
+**SEBASTiAn**: a **S**tatic and **E**xtensible **B**lack-box **A**pplication **S**ecurity **T**esting tool for **i**OS and **An**droid applications is a platform agnostic and easily extensible modular tool for performing static security assessments of mobile applications.
 It can analyze both Android (`apk`) and iOS (`ipa`) applications by providing a unified JSON report containing details about the identified vulnerabilities as well as remediation suggestions, web resources for further insights, and the location where the vulnerable code/configuration was found.
 
 ## ❱ Publication
