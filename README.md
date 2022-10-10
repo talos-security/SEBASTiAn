@@ -415,6 +415,6 @@ This software was developed for research purposes at Talos in collaboration with
 
 * [Davide Caputo](https://csec.it/people/davide_caputo/) - Research Assistant & Developer
 * [Gabriel Claudiu Georgiu](https://github.com/ClaudiuGeorgiu) - Developer
-* [Francesco Pagano](https://cesc.it/people/francesco_pagano) - Research Assistant & Developer
-* [Andrea Romdhana](https://cesc.it/people/francesco_pagano) - Research Assistant & Developer
-* [Luca Verderame](https://csec.it/people/andrea_romdhana)
+* [Francesco Pagano](https://csec.it/people/francesco_pagano) - Research Assistant & Developer
+* [Andrea Romdhana](https://csec.it/people/andrea-romdhana) - Research Assistant & Developer
+* [Luca Verderame](https://csec.it/people/luca_verderame)
