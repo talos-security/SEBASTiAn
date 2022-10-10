@@ -139,7 +139,15 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 > This Plugin checks the presence of base64 encoded strings, notifying them to the developer.
 
-### [cordova_access_origin](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/cordova_access_origin_with_csp/details_en.json)
+### [check_calling_or_self_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/check_calling_or_self_permission)
+
+> A component that uses run-time permission checking via checkCallingOrSelfPermission for access control grants permission to all components if it grants permission even once to a component that is in the same app as that itself. Suppose checkCallingOrSelfPermission is used to protect a component that performs a sensitive operation. In that case, a component in a malicious app can escalate its privilege and access the component.
+
+### [check_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/check_permission)
+
+> A component that uses checkPermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling checkPermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component is running. In such a scenario, if the process in which the protected component is running is granted permission, checkPermission will always be true. A malicious component can exploit this vulnerability to access the protected component.
+
+### [cordova_access_origin](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/cordova_access_origin_with_csp)
 
 > This Plugin checks if the app properly configures the Network Request Whitelist options in its Cordova config.xml file. The Plugin checks also if the app configures the Network Request Whitelist options to accept plain HTTP URLs. The Network Request Whitelist options control which network requests are allowed.
 
@@ -191,6 +199,14 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 > This Plugin searches for a user-defined empty `permissionGroup` in the Android Manifest. Setting the `permissionGroup` attribute to an empty value will make the permission definition invalid, and no other application will be able to use the permission.
 
+### [enforce_calling_or_self_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/enforce_calling_or_self_permission/details_en.json)
+
+> A component that uses run-time permission checking via enforceCallingOrSelfPermission for access control grants permission to all components if it grants permission even once to a component that is in the same app as that itself. If enforceCallingOrSelfPermission is used to protect a component that performs a sensitive operation, then a component in a malicious app can escalate its privilege and access the component.
+
+### [enforce_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/enforce_permission/details_en.json)
+
+> A component that uses enforcePermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling enforcePermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution for the application called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component runs. In such a scenario, if the process in which the protected component is running is granted permission, then enforcePermission will not throw a SecurityException. A malicious component can exploit this vulnerability to access the protected component.
+
 ### [exported_component](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/exported_component)
 
 > This Plugin detects exported components for receiving external applications' actions. These components can be initialized by other apps and used maliciously. The Plugin also checks exported ContentProvider, allowing any other app on the device to access it (`AndroidManifest.xml`). Found exported components lacking `android:` prefix in an exported attribute.
@@ -198,6 +214,10 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 ### [external_storage](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/external_storage)
 
 > This plugin checks if the app uses the external storage access API. Any app in the system can access external storage; thus, its use for security-critical files is discouraged.
+
+### [idos_xas_fi](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/idos_xas_fi/details_en.json)
+
+> Potentially unsafe uses of parameters associated with intents have been found.
 
 ### [implicit_intent_service](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/implicit_intent_service)
 
@@ -372,6 +392,10 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 ### [weak_hashes](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/weak_hashes)
 
 > The Plugin checks if the binary makes use of some weak hashing API(s).
+
+### [webview_load_data_with_base_url](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/webview_load_data_with_base_url)
+
+> An application can load a saved HTML web page as a string using loadDataWithBaseUrl() with file scheme baseURL. Since WebView has permission to access all of the app’s resources, JavaScript code executing in the context of WebView will also have the same permissions. If the saved web page sources JavaScript code from a malicious server, these permissions can be abused.
 
 ## ❱ Contributing
 
