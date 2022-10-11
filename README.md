@@ -409,8 +409,7 @@ Depending on your needs, you must choose one of them and follow its policies. A 
 
 ## ❱ Credits
 
-This software was developed for research purposes at Talos in collaboration with the Computer Security Lab (CSecLab).
-
+This software was developed for research purposes in collaboration with the [Computer Security Lab (CSecLab)](https://www.csec.it/).
 ## ❱ Team
 
 * [Davide Caputo](https://csec.it/people/davide_caputo/) - Research Assistant & Developer
