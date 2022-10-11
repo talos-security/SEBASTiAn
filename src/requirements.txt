@@ -1,7 +1,8 @@
 androguard[magic]@https://github.com/androguard/androguard/archive/8d091cbb309c0c50bf239f805cc1e0931b8dcddc.zip
 biplist==1.0.3
 lief==0.10.1
-marshmallow-dataclass==8.3.0
+marshmallow==3.18.0
+marshmallow-dataclass==8.5.9
 Pebble==4.5.3
 pytest-cov==2.10.1
 Yapsy==1.12.2

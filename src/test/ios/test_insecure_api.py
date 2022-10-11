@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import IOSAnalysis
-from motan.ios_vulnerabilities.insecure_api import InsecureAPI
+from SEBASTiAn.analysis import IOSAnalysis
+from SEBASTiAn.ios_vulnerabilities.insecure_api import InsecureAPI
 
 
 class TestInsecureApi(object):

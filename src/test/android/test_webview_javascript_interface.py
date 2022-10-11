@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.webview_javascript_interface import (
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.webview_javascript_interface import (
     WebViewAddJavaScriptInterface,
 )
 

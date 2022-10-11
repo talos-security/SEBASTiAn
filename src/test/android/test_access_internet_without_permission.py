@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.access_internet_without_permission import (
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.access_internet_without_permission import (
     AccessInternetWithoutPermission,
 )
 
@@ -14,7 +14,7 @@ class TestAccessInternetWithoutPermission(object):
             os.path.dirname(os.path.realpath(__file__)),
             os.path.pardir,
             "test_resources",
-            "motan-test-app.apk",
+            "SEBASTiAn-test-app.apk",
         )
 
         analysis = AndroidAnalysis(apk_path, ignore_libs=True)

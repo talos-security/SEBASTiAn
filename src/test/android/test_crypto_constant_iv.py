@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.crypto_constant_iv import CryptoConstantIv
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.crypto_constant_iv import CryptoConstantIv
 
 
 class TestCryptoConstantIv(object):

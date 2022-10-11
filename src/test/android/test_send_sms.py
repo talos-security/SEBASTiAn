@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.send_sms import SendSms
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.send_sms import SendSms
 
 
 class TestSendSms(object):

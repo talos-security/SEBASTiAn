@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import IOSAnalysis
-from motan.ios_vulnerabilities.rpath_set import RPathSet
+from SEBASTiAn.analysis import IOSAnalysis
+from SEBASTiAn.ios_vulnerabilities.rpath_set import RPathSet
 
 
 class TestRPathSet(object):

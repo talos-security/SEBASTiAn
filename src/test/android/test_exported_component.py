@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.exported_component import ExportedComponent
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.exported_component import ExportedComponent
 
 
 class TestExportedComponent(object):

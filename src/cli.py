@@ -6,7 +6,7 @@ import logging
 import os
 from typing import List
 
-from motan.main import perform_analysis_with_timeout
+from SEBASTiAn.main import perform_analysis_with_timeout
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ def get_cmd_args(args: List[str] = None):
     languages = ["en", "it"]
 
     parser = argparse.ArgumentParser(
-        prog="python3 -m motan.cli",
+        prog="python3 -m SEBASTiAn.cli",
         description="Find the security vulnerabilities of a mobile application "
         "without needing its source code.",
     )

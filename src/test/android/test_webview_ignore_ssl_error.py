@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.webview_ignore_ssl_error import WebViewIgnoreSslError
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.webview_ignore_ssl_error import WebViewIgnoreSslError
 
 
 class TestWebViewIgnoreSslError(object):

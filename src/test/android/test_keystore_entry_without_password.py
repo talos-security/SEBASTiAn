@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.crypto_keystore_entry_without_password import (
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.crypto_keystore_entry_without_password import (
     CryptoKeystoreEntryWithoutPassword,
 )
 

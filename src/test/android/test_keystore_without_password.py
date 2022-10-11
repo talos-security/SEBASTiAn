@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.keystore_without_password import (
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.keystore_without_password import (
     KeystoreWithoutPassword,
 )
 
@@ -14,7 +14,7 @@ class TestKeystoreWithoutPassword(object):
             os.path.dirname(os.path.realpath(__file__)),
             os.path.pardir,
             "test_resources",
-            "motan-test-app.apk",
+            "SEBASTiAn-test-app.apk",
         )
 
         analysis = AndroidAnalysis(apk_path, ignore_libs=True)

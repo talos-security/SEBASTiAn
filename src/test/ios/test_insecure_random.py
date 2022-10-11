@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import IOSAnalysis
-from motan.ios_vulnerabilities.insecure_random import InsecureRandom
+from SEBASTiAn.analysis import IOSAnalysis
+from SEBASTiAn.ios_vulnerabilities.insecure_random import InsecureRandom
 
 
 class TestInsecureRandom(object):

@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import IOSAnalysis
-from motan.ios_vulnerabilities.malloc_function import MallocFunction
+from SEBASTiAn.analysis import IOSAnalysis
+from SEBASTiAn.ios_vulnerabilities.malloc_function import MallocFunction
 
 
 class TestMallocFunction(object):

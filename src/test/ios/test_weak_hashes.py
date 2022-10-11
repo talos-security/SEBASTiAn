@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import IOSAnalysis
-from motan.ios_vulnerabilities.weak_hashes import WeakHashes
+from SEBASTiAn.analysis import IOSAnalysis
+from SEBASTiAn.ios_vulnerabilities.weak_hashes import WeakHashes
 
 
 class TestWeakHashes(object):

@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.sqlite_exec_sql import SqliteExecSql
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.sqlite_exec_sql import SqliteExecSql
 
 
 class TestSqliteExecSql(object):

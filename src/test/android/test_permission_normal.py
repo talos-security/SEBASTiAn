@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.permission_normal import PermissionNormal
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.permission_normal import PermissionNormal
 
 
 class TestPermissionNormal(object):
@@ -12,7 +12,7 @@ class TestPermissionNormal(object):
             os.path.dirname(os.path.realpath(__file__)),
             os.path.pardir,
             "test_resources",
-            "motan-test-app.apk",
+            "SEBASTiAn-test-app.apk",
         )
 
         analysis = AndroidAnalysis(apk_path, ignore_libs=True)

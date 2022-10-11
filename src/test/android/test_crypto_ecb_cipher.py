@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import AndroidAnalysis
-from motan.android_vulnerabilities.crypto_ecb_cipher import CryptoEcbCipher
+from SEBASTiAn.analysis import AndroidAnalysis
+from SEBASTiAn.android_vulnerabilities.crypto_ecb_cipher import CryptoEcbCipher
 
 
 class TestCryptoEcbCipher(object):

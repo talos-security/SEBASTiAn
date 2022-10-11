@@ -2,8 +2,8 @@
 
 import os
 
-from motan.analysis import IOSAnalysis
-from motan.ios_vulnerabilities.encryption_missing import EncryptionMissing
+from SEBASTiAn.analysis import IOSAnalysis
+from SEBASTiAn.ios_vulnerabilities.encryption_missing import EncryptionMissing
 
 
 class TestEncryptionMissing(object):
