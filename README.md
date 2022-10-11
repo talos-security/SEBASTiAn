@@ -9,7 +9,20 @@ It can analyze both Android (`apk`) and iOS (`ipa`) applications by providing a 
 
 ## ❱ Publication
 
-Coming soon
+More details about **SEBASTiAn** can be found in the paper [SEBASTiAn: a Static and Extensible Black-box Application Security Testing tool for iOS and Android applications](https://doi.org/10.36227/techrxiv.21261573.v1):
+
+```BibTex
+@article{Pagano2022,
+author = "Francesco Pagano and Andrea Romdhana and Davide Caputo and Luca Verderame and Alessio Merlo",
+title = "{SEBASTiAn: a Static and Extensible Black-box Application Security Testing tool for iOS and Android applications}",
+year = "2022",
+month = "10",
+url = "https://www.techrxiv.org/articles/preprint/SEBASTiAn_a_Static_and_Extensible_Black-box_Application_Security_Testing_tool_for_iOS_and_Android_applications/21261573",
+doi = "10.36227/techrxiv.21261573.v1"
+}
+```
+
+Submitted on [Journal of Systems and Software](https://www.sciencedirect.com/journal/journal-of-systems-and-software)
 
 ## ❱ Installation
 
