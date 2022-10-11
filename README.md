@@ -417,4 +417,4 @@ This software was developed for research purposes at Talos in collaboration with
 * [Gabriel Claudiu Georgiu](https://github.com/ClaudiuGeorgiu) - Developer
 * [Francesco Pagano](https://csec.it/people/francesco_pagano) - Research Assistant & Developer
 * [Andrea Romdhana](https://csec.it/people/andrea-romdhana) - Research Assistant & Developer
-* [Luca Verderame](https://csec.it/people/luca_verderame)
+* [Luca Verderame](https://csec.it/people/luca_verderame) - Assistant Professor @ Unige & CEO Talos
