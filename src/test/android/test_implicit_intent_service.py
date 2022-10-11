@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.implicit_intent_service import ImplicitIntentService
+from SEBASTiAn.android_vulnerabilities.implicit_intent_service import (
+    ImplicitIntentService,
+)
 
 
 class TestImplicitIntentService(object):

@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.empty_permission_group import EmptyPermissionGroup
+from SEBASTiAn.android_vulnerabilities.empty_permission_group import (
+    EmptyPermissionGroup,
+)
 
 
 class TestEmptyPermissionGroup(object):

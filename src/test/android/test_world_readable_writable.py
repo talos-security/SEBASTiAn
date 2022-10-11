@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.world_readable_writable import WorldReadableWritable
+from SEBASTiAn.android_vulnerabilities.world_readable_writable import (
+    WorldReadableWritable,
+)
 
 
 class TestWorldReadableWritable(object):

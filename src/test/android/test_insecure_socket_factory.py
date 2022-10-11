@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.insecure_socket_factory import InsecureSocketFactory
+from SEBASTiAn.android_vulnerabilities.insecure_socket_factory import (
+    InsecureSocketFactory,
+)
 
 
 class TestInsecureSocket(object):

@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.debuggable_application import DebuggableApplication
+from SEBASTiAn.android_vulnerabilities.debuggable_application import (
+    DebuggableApplication,
+)
 
 
 class TestDebuggableApplication(object):

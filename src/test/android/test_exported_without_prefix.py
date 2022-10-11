@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.exported_without_prefix import ExportedWithoutPrefix
+from SEBASTiAn.android_vulnerabilities.exported_without_prefix import (
+    ExportedWithoutPrefix,
+)
 
 
 class TestExportedWithoutPrefix(object):

@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.webview_ignore_ssl_error import WebViewIgnoreSslError
+from SEBASTiAn.android_vulnerabilities.webview_ignore_ssl_error import (
+    WebViewIgnoreSslError,
+)
 
 
 class TestWebViewIgnoreSslError(object):

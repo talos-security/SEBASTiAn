@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import IOSAnalysis
-from SEBASTiAn.ios_vulnerabilities.insecure_connection_plist import InsecureConnectionPlist
+from SEBASTiAn.ios_vulnerabilities.insecure_connection_plist import (
+    InsecureConnectionPlist,
+)
 
 
 class TestInsecureConnectionPlist(object):

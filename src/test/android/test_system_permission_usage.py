@@ -3,7 +3,9 @@
 import os
 
 from SEBASTiAn.analysis import AndroidAnalysis
-from SEBASTiAn.android_vulnerabilities.system_permission_usage import SystemPermissionUsage
+from SEBASTiAn.android_vulnerabilities.system_permission_usage import (
+    SystemPermissionUsage,
+)
 
 
 class TestSystemPermissionUsage(object):
