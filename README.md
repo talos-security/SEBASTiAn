@@ -430,3 +430,8 @@ This software was developed for research purposes in collaboration with the [Com
 * [Francesco Pagano](https://csec.it/people/francesco_pagano) - Research Assistant & Developer
 * [Andrea Romdhana](https://csec.it/people/andrea-romdhana) - Research Assistant & Developer
 * [Luca Verderame](https://csec.it/people/luca_verderame) - Assistant Professor @ Unige & CEO Talos
+
+## ❱ Star History
+
+
+[![Star History Chart](https://api.star-history.com/svg?repos=talos-security/SEBASTiAn&type=Date)](https://star-history.com/#talos-security/SEBASTiAn&Date)
