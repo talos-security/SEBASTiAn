@@ -5,7 +5,7 @@ import os
 from typing import Optional
 
 import SEBASTiAn.categories as categories
-from SEBASTiAnTiAn import vulnerability as vuln
+from SEBASTiAn import vulnerability as vuln
 from SEBASTiAn.analysis import AndroidAnalysis
 
 

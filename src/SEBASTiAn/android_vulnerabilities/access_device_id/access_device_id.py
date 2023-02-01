@@ -6,7 +6,7 @@ from typing import Optional, List
 
 from androguard.core.analysis.analysis import MethodAnalysis
 
-import SEBASTiAnTiAn.categories as categories
+import SEBASTiAn.categories as categories
 from SEBASTiAn import vulnerability as vuln
 from SEBASTiAn.analysis import AndroidAnalysis
 from SEBASTiAn.taint_analysis import TaintAnalysis
