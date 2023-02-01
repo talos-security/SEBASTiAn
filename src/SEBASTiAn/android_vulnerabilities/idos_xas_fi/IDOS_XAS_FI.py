@@ -36,7 +36,6 @@ class IDOS_XAS_FI(categories.ICodeVulnerability):
     def check_vulnerability(
         self, analysis_info: AndroidAnalysis
     ) -> Optional[vuln.VulnerabilityDetails]:
-
         try:
             details = vuln.get_vulnerability_details(
                 os.path.dirname(os.path.realpath(__file__)), analysis_info.language

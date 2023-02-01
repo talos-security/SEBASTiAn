@@ -188,7 +188,6 @@ class RegisterAnalyzer(object):
                                 method.get_name() == "<init>"
                                 or method.get_name() == "<clinit>"
                             ) and method.get_descriptor() == "()V":
-
                                 off = 0
                                 get_instr_found = False
                                 for i in method.get_instructions():

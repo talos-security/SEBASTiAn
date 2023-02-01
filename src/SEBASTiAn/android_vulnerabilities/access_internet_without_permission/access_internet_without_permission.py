@@ -63,7 +63,6 @@ class AccessInternetWithoutPermission(categories.ICodeVulnerability):
                     if target_class
                 ]:
                     for caller_class in caller_set:
-
                         # Ignore excluded classes (if any).
                         if analysis_info.ignore_libs:
                             if any(

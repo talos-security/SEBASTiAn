@@ -78,7 +78,6 @@ def unpack_ios_app(ipa_path: str, working_dir: str):
     plist_readable = {}
 
     with zipfile.ZipFile(ipa_path, "r") as zipfile_ipa:
-
         # Look for the Info.plist file and find the binary name (CFBundleExecutable).
         for entry in zipfile_ipa.infolist():
             normpath = os.path.normpath(entry.filename)
