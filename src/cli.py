@@ -48,6 +48,7 @@ def get_cmd_args(args: List[str] = None):
         "(only for Android)",
     )
     parser.add_argument(
+        "-ff",
         "--fail-fast",
         action="store_true",
         help="Make the entire analysis fail on the first failed vulnerability check",
@@ -62,11 +63,13 @@ def get_cmd_args(args: List[str] = None):
         "to complete. By default a timeout of 1200 seconds (20 minutes) is used",
     )
     parser.add_argument(
+        "-kf",
         "--keep-files",
         action="store_true",
         help="Keep intermediate files generated during the analysis (only for iOS)",
     )
     parser.add_argument(
+        "-gr",
         "--generate-report",
         action="store_true",
         help="Generate the report of the analysis in JSON format",
