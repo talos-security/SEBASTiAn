@@ -1,0 +1,198 @@
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 1.443001443001443,
+  "vulnerabilities": [
+    {
+      "id": "DebuggableApplication",
+      "name": "Android Debug Mode Checking",
+      "description": "DEBUG mode is **ON** (`android:debuggable=\"true\"` in `AndroidManifest.xml`). Debug mode is extremely discouraged in production since malicious users can debug the app and sniff verbose error information through Logcat.",
+      "remediation": "Please set the debuggable flag to FALSE if it is a production application.",
+      "references": {
+        "text": "Further information on debugging Android applications can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/studio/debug/index.html"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "None",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "Low"
+      },
+      "code": [
+        {
+          "what": "android:debuggable=\"true\"",
+          "where": "AndroidManifest.xml",
+          "full_path": "AndroidManifest.xml"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 1.44%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    },
+    {
+      "id": "WebViewAllowFileAccess",
+      "name": "WebView Local File Access Attacks Checking",
+      "description": "Found `setAllowFileAccess(true)` or not set (enabled by default) in WebView. The attackers could inject malicious script into WebView and exploit the opportunity to access local resources. ",
+      "remediation": "This vulnerability can be mitigated by disabling local file system access (which is enabled by default) by setting `yourWebView.getSettings().setAllowFileAccess(false)`. This precaution disables the file system access only. Assets and resources are still accessible using URIs, like `file:///android_asset` and `file:///android_res`. The attackers can still use method `yourWebView.loadUrl(\"file:///data/data/[your_package_name]/[file]\");` to access app's local file.",
+      "references": {
+        "text": "Further information about this problem and possible countermeasures can be found in InfoSecurity Blog post [[1]] and in Android Reference Guide [[2]].",
+        "links": {
+          "1": "https://labs.mwrinfosecurity.com/blog/2012/04/23/adventures-with-android-webviews/",
+          "2": "http://developer.android.com/reference/android/webkit/WebSettings.html#setAllowFileAccess(boolean)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "High",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V",
+          "where": "Ledu/ksu/cs/benign/MainActivity;->onResume()V",
+          "full_path": "Ledu/ksu/cs/benign/MainActivity;->onResume()V --> Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V"
+        }
+      ]
+    },
+    {
+      "id": "WebViewInterceptRequest",
+      "name": "WebView intercept request",
+      "description": "Android allows apps to load resources (e.g, JavaScript, CSS files etc.) in a web page in a WebView, and control the resources being loaded in a webpage via the `shouldInterceptRequest` method in `WebViewClient`. The `shouldInterceptRequest` method takes an instance of WebView and the resource request as input and returns a response object. If the response object returned is `null` then the WebView is loaded with the web page containing the resource that was requested. But if a non-`null` response is returned then the WebView is loaded with the web page containing the non-`null` response. If the app does not validate the resource in `shouldInterceptRequest` method of `WebViewClient`, any resource can be loaded into WebView.",
+      "remediation": null,
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView, android.webkit.WebResourceRequest)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "shouldInterceptRequest not overridden, any resource can be loaded",
+          "where": "Ledu/ksu/cs/benign/MyWebViewClient;",
+          "full_path": "Ledu/ksu/cs/benign/MyWebViewClient;"
+        }
+      ]
+    },
+    {
+      "id": "WebViewJavaScriptEnabled",
+      "name": "WebView Potential XSS Attacks Checking",
+      "description": "Found `\"setJavaScriptEnabled(true)\"` in WebView. Enabling JavaScript exposes to malicious injection of code that would be executed with the same permissions (XSS attacks).",
+      "remediation": "If JavaScript is not necessary for your web page, please disable it (`\"setJavaScriptEnabled(false)\"`). Otherwise, in order to minimize the risk of XSS attacks, carefully review the web page code and sanitize the output presented in the WebView.",
+      "references": {
+        "text": "Further information on XSS attacks can be found in the OWASP documentation [[1]], while a guide for building secure web apps in Android can be found in the official documentation [[2]].",
+        "links": {
+          "1": "https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)",
+          "2": "https://developer.android.com/guide/webapps/webview.html"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V",
+          "where": "Ledu/ksu/cs/benign/MainActivity;->onResume()V",
+          "full_path": "Ledu/ksu/cs/benign/MainActivity;->onResume()V --> Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V"
+        }
+      ]
+    },
+    {
+      "id": "WebViewOverrideUrl",
+      "name": "WebView override url",
+      "description": "Android allows apps to display web content in a WebView, and control navigation across webpages via the `shouldOverrideUrlLoading` method in `WebViewClient`. The `shouldOverrideUrlLoading` method takes an instance of WebView and the page request as input and returns a boolean. If `true` is returned then the host application handles the request else if `false` is returned then the current WebView handles the request. If the app does not validate the page request in `shouldOverrideUrlLoading` before loading it in the WebView, any web page provided by the server will be loaded into WebView. By default `shouldOverrideUrlLoading` returns `false` all the time.",
+      "remediation": null,
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView, android.webkit.WebResourceRequest)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "shouldOverrideUrlLoading not overridden, returns false by default",
+          "where": "Ledu/ksu/cs/benign/MyWebViewClient;",
+          "full_path": "Ledu/ksu/cs/benign/MyWebViewClient;"
+        }
+      ]
+    }
+  ],
+  "duration": "3.7 seconds"
+}
