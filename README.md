@@ -22,8 +22,6 @@ doi = "10.36227/techrxiv.21261573.v1"
 }
 ```
 
-Submitted on [Journal of Systems and Software](https://www.sciencedirect.com/journal/journal-of-systems-and-software)
-
 ## ❱ Installation
 
 The only requirement of this project is a working `Python 3` installation (along with
