@@ -5,20 +5,23 @@
 <!--[![Build Status](https://github.com/talos-security/SEBASTiAn/workflows/Build/badge.svg)](https://github.com/talos-security/SEBASTiAn/actions?query=workflow%3ABuild)-->
 
 **SEBASTiAn**: a **S**tatic and **E**xtensible **B**lack-box **A**pplication **S**ecurity **T**esting tool for **i**OS and **An**droid applications is a platform agnostic and easily extensible modular tool for performing static security assessments of mobile applications.
-It can analyze both Android (`apk`) and iOS (`ipa`) applications by providing a unified JSON report containing details about the identified vulnerabilities as well as remediation suggestions, web resources for further insights, and the location where the vulnerable code/configuration was found.
+It can analyze Android (`apk`) and iOS (`ipa`) applications by providing a unified JSON report containing details about the identified vulnerabilities, remediation suggestions, web resources for further insights, and the location where the vulnerable code/configuration was found.
 
 ## ❱ Publication
 
 More details about **SEBASTiAn** can be found in the paper [SEBASTiAn: a Static and Extensible Black-box Application Security Testing tool for iOS and Android applications](https://doi.org/10.36227/techrxiv.21261573.v1):
 
 ```BibTex
-@article{Pagano2022,
-author = "Francesco Pagano and Andrea Romdhana and Davide Caputo and Luca Verderame and Alessio Merlo",
-title = "{SEBASTiAn: a Static and Extensible Black-box Application Security Testing tool for iOS and Android applications}",
-year = "2022",
-month = "10",
-url = "https://www.techrxiv.org/articles/preprint/SEBASTiAn_a_Static_and_Extensible_Black-box_Application_Security_Testing_tool_for_iOS_and_Android_applications/21261573",
-doi = "10.36227/techrxiv.21261573.v1"
+@article{PAGANO2023101448,
+  title = {SEBASTiAn: A static and extensible black-box application security testing tool for iOS and Android applications},
+  journal = {SoftwareX},
+  volume = {23},
+  pages = {101448},
+  year = {2023},
+  issn = {2352-7110},
+  doi = {https://doi.org/10.1016/j.softx.2023.101448},
+  url = {https://www.sciencedirect.com/science/article/pii/S2352711023001449},
+  author = {Francesco Pagano and Andrea Romdhana and Davide Caputo and Luca Verderame and Alessio Merlo}
 }
 ```
 
@@ -36,7 +39,7 @@ different version of Python, as specified in the table below:
 | **3.8**            | :heavy_check_mark:       | :warning:                | :heavy_check_mark:       |
 | **3.9** or greater | :heavy_check_mark:       | :warning:                | :heavy_check_mark:       |
 
-:warning: might work by installing `lief` package manually, since no stable prebuilt
+:warning: might work by installing `lief` package manually, since there is no stable prebuilt
 wheels are currently available.
 
 Run the following commands in the main directory of the project (`SEBEASTiAn/`) to install the needed dependencies:
@@ -44,8 +47,8 @@ Run the following commands in the main directory of the project (`SEBEASTiAn/`) 
 ```Shell
 # Make sure to run the commands in SEBASTiAn/ directory.
 
-# The usage of a virtual environment is highly recommended, e.g., virtualenv.
-# If not using virtualenv (https://virtualenv.pypa.io/), skip the next 2 lines.
+# Using a virtual environment is highly recommended, e.g., virtualenv.
+# If not using virtualenv (https://virtualenv.pypa.io/), skip the next two lines.
 virtualenv -p python3 venv
 source venv/bin/activate
 
@@ -58,18 +61,18 @@ correctly:
 
 ```Shell
 $ cd src/
-$ # The following command has to be executed always from SEBASTiAn/src/ directory
+$ # The following command has to be always executed from SEBASTiAn/src/ directory
 $ # or by adding SEBASTiAn/src/ directory to PYTHONPATH environment variable.
 $ python3 -m cli --help
 usage: python3 -m cli [-h] [-l {en,it}] [-i] [--fail-fast] [-t TIMEOUT]
 ...
 ```
 
-SEBASTiAn is now ready to be used, see the help message for more information.
+SEBASTiAn is ready to be used; see the help message for more information.
 
 ## ❱ Usage
 
-From now on, SEBASTiAn will be considered as an executable availabe as `SEBASTiAn`, so you need to adapt the commands according to how you install the tool:
+From now on, SEBASTiAn will be considered as an executable available as `SEBASTiAn`, so you need to adapt the commands according to how you install the tool:
 
 * **Docker image**: a local directory containing the application to analyze has to be
 mounted to `/workdir` in the container (e.g., the current directory `"${PWD}"`), so the
@@ -84,6 +87,10 @@ command:
     ```Shell
     docker run --rm -it -u $(id -u):$(id -g) -v "${PWD}":"/workdir" SEBASTiAn [params...]
     ```
+    
+     Alternatively, you can directly run SEBASTiAn from its official docker image, available on Docker Hub:
+    ```Shell
+    docker run --rm -it -u $(id -u):$(id -g) -v "${PWD}":"/workdir" talossec/sebastian:1.0.0 [params...]
 
 * **From source**: every instruction has to be executed from the `SEBASTiAn/src/`
 directory (or by adding `SEBASTiAn/src/` directory to `PYTHONPATH` environment
@@ -107,16 +114,16 @@ $ SEBASTiAn --help
 SEBASTiAn [-h] [-l {en,it}] [-i] [--fail-fast] [-t TIMEOUT] [--keep-files] <FILE>
 ```
 
-There is only one mandatory parameters : `<FILE>`, the path (relative or absolute) to
+There is only one mandatory parameter: `<FILE>`, the path (relative or absolute) to
 the apk file to analyze.
 
 * `-l {en,it}, --language {en,it}`, The language used for the vulnerabilities. Allowed values are: en, it.
 
-* `-i, --ignore-libs`, Ignore known third party libraries during the vulnerability analysis (only for Android).
+* `-i, --ignore-libs`, Ignore known third-party libraries during the vulnerability analysis (only for Android).
 
 * `--fail-fast`, Make the entire analysis fail on the first failed vulnerability check.
   
-* `-t TIMEOUT, --timeout TIMEOUT` Make the analysis fail if it takes longer than timeout (in seconds) to complete. By default a timeout of 1200 seconds (20 minutes) is used.
+* `-t TIMEOUT, --timeout TIMEOUT` Make the analysis fail if it takes longer than the timeout (in seconds). By default, a timeout of 1200 seconds (20 minutes) is used.
 
 * `--keep-files`, Keep intermediate files generated during the analysis (only for iOS).
 
@@ -132,11 +139,11 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [access_internet_without_permission](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/access_internet_without_permission)
 
-> This app contains code for Internet access but does not have internet permission in AndroidManifest.xml. This may be caused by an app misconfiguration or a malicious app that tries to access the network interface without proper permission.
+> This app contains code for Internet access but does not have the Internet permission in AndroidManifest.xml. This may be caused by an app misconfiguration or a malicious app that tries to access the network interface without proper permission.
 
 ### [access_mock_location](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/access_mock_location)
 
-> The Plugin checks for the presence of the permission Access Mock Location in the Android Manifest. This permission only works in emulated environments and it is deprecated.
+> The Plugin checks for the presence of the permission Access Mock Location in the Android Manifest. This permission only works in emulated environments, and it is deprecated.
 
 ### [allow_all_hostname](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/allow_all_hostname)
 
@@ -148,7 +155,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [base64_string](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/base64_string)
 
-> This Plugin checks the presence of base64 encoded strings, notifying them to the developer.
+> This Plugin checks the presence of base64 encoded strings, notifying the developer.
 
 ### [check_calling_or_self_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/check_calling_or_self_permission)
 
@@ -156,11 +163,11 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [check_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/check_permission)
 
-> A component that uses checkPermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling checkPermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component is running. In such a scenario, if the process in which the protected component is running is granted permission, checkPermission will always be true. A malicious component can exploit this vulnerability to access the protected component.
+> A component that uses checkPermission to verify access control at run-time must obtain the PID and UID of the calling component before calling checkPermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component is running. In such a scenario, if the process in which the protected component is running is granted permission, checkPermission will always be true. A malicious component can exploit this vulnerability to access the protected component.
 
 ### [cordova_access_origin](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/cordova_access_origin_with_csp)
 
-> This Plugin checks if the app properly configures the Network Request Whitelist options in its Cordova config.xml file. The Plugin checks also if the app configures the Network Request Whitelist options to accept plain HTTP URLs. The Network Request Whitelist options control which network requests are allowed.
+> This Plugin checks if the app properly configures the Network Request Whitelist options in its Cordova config.xml file. The Plugin also checks if the app configures the Network Request Whitelist options to accept plain HTTP URLs. The Network Request Whitelist options control which network requests are allowed.
 
 ### [cordova_allow_intent](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/cordova_allow_intent_wildcard)
 
@@ -176,7 +183,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [crypto_constant_key](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/crypto_constant_key)
 
-> This plugin checks if the app stores encryption keys in the source code. The apps that present this vulnerability are vulnerable to forgery attacks and information leaks.
+> This Plugin checks if the app stores encryption keys in the source code. The apps that present this vulnerability are vulnerable to forgery attacks and information leaks.
 
 ### [crypto_constant_salt](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/crypto_constant_salt)
 
@@ -200,7 +207,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [default_scheme_http](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/default_scheme_http)
 
-> This Plugin checks if the app uses `HttpHost` but its default scheme is `HTTP`.
+> This Plugin checks if the app uses `HttpHost`, but its default scheme is `HTTP`.
 
 ### [dynamic_code_loading](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/dynamic_code_loading)
 
@@ -208,7 +215,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [empty_permission_group](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/empty_permission_group)
 
-> This Plugin searches for a user-defined empty `permissionGroup` in the Android Manifest. Setting the `permissionGroup` attribute to an empty value will make the permission definition invalid, and no other application will be able to use the permission.
+> This Plugin searches for a user-defined empty `permissionGroup` in the Android Manifest. Setting the `permissionGroup` attribute to an empty value will invalidate the permission definition, and no other application can use the permission.
 
 ### [enforce_calling_or_self_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/enforce_calling_or_self_permission/details_en.json)
 
@@ -216,7 +223,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [enforce_permission](https://github.com/talos-security/SEBASTiAn/blob/master/src/SEBASTiAn/android_vulnerabilities/enforce_permission/details_en.json)
 
-> A component that uses enforcePermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling enforcePermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution for the application called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component runs. In such a scenario, if the process in which the protected component is running is granted permission, then enforcePermission will not throw a SecurityException. A malicious component can exploit this vulnerability to access the protected component.
+> A component that uses enforcePermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling enforcePermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution for the application called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component runs. In such a scenario, if the process in which the protected component is running is granted permission, then `enforcePermission` will not throw a SecurityException. A malicious component can exploit this vulnerability to access the protected component.
 
 ### [exported_component](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/exported_component)
 
@@ -236,7 +243,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [insecure_connection](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/insecure_connection)
 
-> This Plugin checks whether the app contains URLs that are not under SSL. This security hazard allows the interception of all the information exchanged with those URLs.
+> This Plugin checks whether the app contains URLs not under SSL. This security hazard allows the interception of all the information exchanged with those URLs.
 
 ### [insecure_hostname_verifier](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/insecure_hostname_verifier)
 
@@ -292,11 +299,11 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [sqlite_exec_sql](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/sqlite_exec_sql)
 
-> This Plugin checks for the presence of the `execSQL()` method of SQLite. The `execSQL()` method could create a SQL query based on the user input content, potentially vulnerable to SQL injection attacks.
+> This Plugin checks for the presence of SQLite's `execSQL()` method. The `execSQL()` method could create a SQL query based on the user input content, potentially vulnerable to SQL injection attacks.
 
 ### [system_permission_usage](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/system_permission_usage)
 
-> This Plugin checks if the app uses necessary permissions to manage filesystem and packages. The System Permission should be confined only to device manufacturers or Google system apps. If not, it may be a malicious app.
+> This Plugin checks if the app uses necessary permissions to manage filesystems and packages. The System Permission should be confined only to device manufacturers or Google system apps. If not, it may be a malicious app.
 
 ### [webview_allow_file_access](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/webview_allow_file_access)
 
@@ -308,7 +315,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [webview_intercept_request](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/webview_intercept_request)
 
-> The Plugin check if the app loads resources (e.g., JavaScript) using a WebView, and control the resources being loaded on a webpage via the `shouldInterceptRequest` method in WebViewClient.
+> The Plugin checks if the app loads resources (e.g., JavaScript) using a WebView, and control the resources being loaded on a webpage via the `shouldInterceptRequest` method in WebViewClient.
 
 ### [webview_javascript_enabled](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/webview_javascript_enabled)
 
@@ -330,7 +337,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [allow_http_plist](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/allow_http_plist)
 
-> The Plugin checks if the app allows the use of the HTTP protocol.
+> The Plugin checks if the app allows the HTTP protocol.
 
 ### [arc_flag_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/arc_flag_missing)
 
@@ -338,7 +345,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [code_signature_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/code_signature_missing)
 
-> The Plugin checks if binary does not have a code signature.
+> The Plugin checks if the binary does not have a code signature.
 
 ### [encryption_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/encryption_missing)
 
@@ -346,7 +353,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [insecure_api](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/insecure_api)
 
-> The Plugin checks if the binary makes use of insecure API(s).
+> The Plugin checks if the binary uses insecure API(s).
 
 ### [insecure_connection_plist](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/insecure_connection_plist)
 
@@ -354,7 +361,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [insecure_random](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/insecure_random)
 
-> The Plugin checks if the binary makes use of some insecure random API(s).
+> The Plugin checks if the binary uses some insecure random API(s).
 
 ### [insecure_tls_version_plist](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/insecure_tls_version_plist)
 
@@ -362,7 +369,7 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [logging_function](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/logging_function)
 
-> The Plugin checks if the Mach-O binary makes use of logging function(s).
+> The Plugin checks if the Mach-O binary uses logging function(s).
 
 ### [malloc_function](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/malloc_function)
 
@@ -370,27 +377,27 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [no_forward_secrecy_plist](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/no_forward_secrecy_plist)
 
-> The Plugin checks if the app disables the server's requirement to support Perfect Forward Secrecy (PFS) through Elliptic Curve Diffie-Hellman Ephemeral (ECDHE).
+> The Plugin checks if the app turns off the server's requirement to support Perfect Forward Secrecy (PFS) through Elliptic Curve Diffie-Hellman Ephemeral (ECDHE).
 
 ### [nx_bit_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/nx_bit_missing)
 
-> The Plugin checks if the binary does not have NX bit set. NX bit offers protection against exploitation of memory-corruption vulnerabilities by marking the memory page as non-executable. However, iOS never allows an app to execute from writeable memory
+> The Plugin checks if the binary does not have the NX bit set. NX bit offers protection against exploitation of memory-corruption vulnerabilities by marking the memory page as non-executable. However, iOS never allows an app to execute from writeable memory.
 
 ### [pie_flag_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/pie_flag_missing)
 
-> The Plugin checks if the binary is built without Position Independent Code flag.
+> The Plugin checks if the binary is built without the Position Independent Code flag.
 
 ### [restricted_segment_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/restricted_segment_missing)
 
-> The Plugin checks if the Mach-O binary file does not have a restricted segment that prevents dynamic loading of dylib for arbitrary code injection.
+> The Plugin checks if the Mach-O binary file has no restricted segment that prevents dynamic loading of dylib for arbitrary code injection.
 
 ### [rpath_set](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/rpath_set)
 
-> The Plugin checks if the binary has Runpath Search Path (@rpath) set. In some instances, an attacker can abuse this feature to run the arbitrary executable for code execution and privilege escalation.
+> The Plugin checks if the binary has Runpath Search Path (@rpath) set. Sometimes, an attacker can abuse this feature to run the arbitrary executable for code execution and privilege escalation.
 
 ### [stack_canary_missing](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/stack_canary_missing)
 
-> The Plugin checks if the binary does not have a stack canary value added to the stack. Stack canaries are used to detect and prevent exploits from overwriting return addresses.
+> The Plugin checks if the binary does not have a stack canary value added. Stack canaries are used to detect and prevent exploits from overwriting return addresses.
 
 ### [symbols_stripped](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/symbols_stripped)
 
@@ -398,25 +405,25 @@ The vulnerabilities checked in SEBASTiAn are divided into two macro-categories: 
 
 ### [weak_crypto](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/weak_crypto)
 
-> The Plugin checks if the binary makes use of some weak crypto API(s).
+> The Plugin checks if the binary uses some weak crypto API(s).
 
 ### [weak_hashes](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/ios_vulnerabilities/weak_hashes)
 
-> The Plugin checks if the binary makes use of some weak hashing API(s).
+> The Plugin checks if the binary uses some weak hashing API(s).
 
 ### [webview_load_data_with_base_url](https://github.com/talos-security/SEBASTiAn/tree/master/src/SEBASTiAn/android_vulnerabilities/webview_load_data_with_base_url)
 
-> An application can load a saved HTML web page as a string using loadDataWithBaseUrl() with file scheme baseURL. Since WebView has permission to access all of the app’s resources, JavaScript code executing in the context of WebView will also have the same permissions. If the saved web page sources JavaScript code from a malicious server, these permissions can be abused.
+> An application can load a saved HTML web page as a string using loadDataWithBaseUrl() with file scheme baseURL. Since WebView has permission to access all of the app's resources, JavaScript code executing in the context of WebView will also have the same permissions. If the saved web page sources JavaScript code from a malicious server, these permissions can be abused.
 
 ## ❱ Contributing
 
-Questions, bug reports and pull requests are welcome on GitHub at [https://github.com/talos-security/SEBASTiAn](https://github.com/talos-security/SEBASTiAn).
+Questions, bug reports, and pull requests are welcome on GitHub at [https://github.com/talos-security/SEBASTiAn](https://github.com/talos-security/SEBASTiAn).
 
 ## ❱ License
 
-This tool is available under a dual license: a commercial one required for closed source projects or commercial projects, and an AGPL license for open-source projects.
+This tool is available under a dual license: a commercial one required for closed-source or commercial projects and an AGPL license for open-source projects.
 
-Depending on your needs, you must choose one of them and follow its policies. A detail of the policies and agreements for each license type is available in the [LICENSE.COMMERCIAL](LICENSE.COMMERCIAL) and [LICENSE](LICENSE) files.
+Depending on your needs, you must choose one of them and follow its policies. The policies and agreements for each license type are detailed in the [LICENSE.COMMERCIAL](LICENSE.COMMERCIAL) and [LICENSE](LICENSE) files.
 
 ## ❱ Credits
 
