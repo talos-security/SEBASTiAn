@@ -430,8 +430,8 @@ Depending on your needs, you must choose one of them and follow its policies. Th
 This software was developed for research purposes in collaboration with the [Computer Security Lab (CSecLab)](https://www.csec.it/).
 ## ❱ Team
 
-* [Davide Caputo](https://csec.it/people/davide_caputo/) - Research Assistant & Developer
-* [Gabriel Claudiu Georgiu](https://github.com/ClaudiuGeorgiu) - Developer
+* [Davide Caputo](https://csec.it/people/davide_caputo/) - Cyber Security Engineer @ Talos
+* [Gabriel Claudiu Georgiu](https://github.com/ClaudiuGeorgiu) - Senior Developer @ iGenius
 * [Francesco Pagano](https://csec.it/people/francesco_pagano) - Research Assistant & Developer
 * [Andrea Romdhana](https://csec.it/people/andrea-romdhana) - Cyber Security Engineer @ Talos
 * [Luca Verderame](https://csec.it/people/luca_verderame) - Assistant Professor @ Unige & CEO @ Talos
