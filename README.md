@@ -433,8 +433,8 @@ This software was developed for research purposes in collaboration with the [Com
 * [Davide Caputo](https://csec.it/people/davide_caputo/) - Research Assistant & Developer
 * [Gabriel Claudiu Georgiu](https://github.com/ClaudiuGeorgiu) - Developer
 * [Francesco Pagano](https://csec.it/people/francesco_pagano) - Research Assistant & Developer
-* [Andrea Romdhana](https://csec.it/people/andrea-romdhana) - Research Assistant & Developer
-* [Luca Verderame](https://csec.it/people/luca_verderame) - Assistant Professor @ Unige & CEO Talos
+* [Andrea Romdhana](https://csec.it/people/andrea-romdhana) - Cyber Security Engineer @ Talos
+* [Luca Verderame](https://csec.it/people/luca_verderame) - Assistant Professor @ Unige & CEO @ Talos
 
 ## ❱ Star History
 
