@@ -14,8 +14,6 @@ class SymbolsStripped(categories.ICodeVulnerability):
         self.logger = logging.getLogger(self.__class__.__name__)
         super().__init__()
 
-
-
     def check_vulnerability(
         self, analysis_info: IOSAnalysis
     ) -> Optional[vuln.VulnerabilityDetails]:
@@ -28,13 +26,13 @@ class SymbolsStripped(categories.ICodeVulnerability):
             details.id = self.__class__.__name__
 
             vulnerability_found = True
-            
-            filter_symbol = 'radr://5614542'
+
+            filter_symbol = "radr://5614542"
             for i in analysis_info.macho_object.symbols:
-                if (i.type & 0xe0) > 0 and i.name.lower().strip() != filter_symbol:
-                    vulnerability_found =  False
+                if (i.type & 0xE0) > 0 and i.name.lower().strip() != filter_symbol:
+                    vulnerability_found = False
                     break
-                    
+
             if vulnerability_found:
                 return details
             else:
