@@ -88,9 +88,10 @@ command:
     docker run --rm -it -u $(id -u):$(id -g) -v "${PWD}":"/workdir" SEBASTiAn [params...]
     ```
     
-     Alternatively, you can directly run SEBASTiAn from its official docker image, available on Docker Hub:
+    Alternatively, you can directly run SEBASTiAn from its official docker image, available on Docker Hub:
+
     ```Shell
-    docker run --rm -it -u $(id -u):$(id -g) -v "${PWD}":"/workdir" talossec/sebastian:1.0.0 [params...]
+    docker run --rm -it -u $(id -u):$(id -g) -v "${PWD}":"/workdir" talossec/sebastian:latest [params...]
 
 * **From source**: every instruction has to be executed from the `SEBASTiAn/src/`
 directory (or by adding `SEBASTiAn/src/` directory to `PYTHONPATH` environment
