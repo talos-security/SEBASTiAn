@@ -36,8 +36,8 @@ different version of Python, as specified in the table below:
 | **2.x**            | :trollface:              | :trollface:              | :trollface:              |
 | **3.6** or lower   | :heavy_multiplication_x: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | **3.7**            | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
-| **3.8**            | :heavy_check_mark:       | :warning:                | :heavy_check_mark:       |
-| **3.9** or greater | :heavy_check_mark:       | :warning:                | :heavy_check_mark:       |
+| **3.8**            | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
+| **3.9** or greater | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
 
 :warning: might work by installing `lief` package manually, since there is no stable prebuilt
 wheels are currently available.
