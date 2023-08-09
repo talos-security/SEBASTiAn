@@ -22,6 +22,6 @@ class TestRPathSet(object):
         analysis.finalize()
 
         assert True
-        # assert vulnerability is not None 
+        # assert vulnerability is not None
         # assert vulnerability.id == RPathSet.__name__
         # assert len(vulnerability.code) == 0
