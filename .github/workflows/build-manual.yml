@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.7', '3.8', '3.9', '3.10' ]
+        python-version: [ '3.8', '3.9', '3.10' ]
         os: [ windows-latest ]
 
     steps:
@@ -49,6 +49,4 @@ jobs:
 
       - name: Update the latest release
         run: |
-          ghr -t ${{ secrets.GITHUB_TOKEN }} \
-            -b "${{ github.event.head_commit.message }}" \
-            -recreate documentation-latest ./src/SEBASTiAn/excelify/xlsx/
+          ghr -t ${{ secrets.GITHUB_TOKEN }} -b "${{ github.event.head_commit.message }}" -recreate documentation-latest ./src/SEBASTiAn/excelify/xlsx/

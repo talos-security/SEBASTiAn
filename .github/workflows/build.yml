@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    tags:        
+      - '*'
 
 jobs:
   test:
@@ -12,8 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.7', '3.8', '3.9', '3.10' ]
-        os: [ ubuntu-latest ]
+        python-version: [ '3.8', '3.9', '3.10' ]
+        os: [ windows-latest ]
 
     steps:
       - name: Set up Python ${{ matrix.python-version }}
@@ -51,6 +53,4 @@ jobs:
 
       - name: Update the latest release
         run: |
-          ghr -t ${{ secrets.GITHUB_TOKEN }} \
-            -b "${{ github.event.head_commit.message }}" \
-            -recreate documentation-latest ./src/SEBASTiAn/excelify/xlsx/
+          ghr -t ${{ secrets.GITHUB_TOKEN }}  -b "${{ github.event.head_commit.message }}" -recreate documentation-latest ./src/SEBASTiAn/excelify/xlsx/
