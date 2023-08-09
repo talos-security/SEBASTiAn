@@ -4,5 +4,5 @@ lief==0.12.3
 marshmallow==3.18.0
 marshmallow-dataclass==8.5.9
 Pebble==4.5.3
-pytest-cov==2.10.1
+pytest-cov==2.12.1
 Yapsy==1.12.2
