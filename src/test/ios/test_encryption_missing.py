@@ -23,4 +23,3 @@ class TestEncryptionMissing(object):
 
         assert vulnerability.id == EncryptionMissing.__name__
         assert len(vulnerability.code) == 0
-        
