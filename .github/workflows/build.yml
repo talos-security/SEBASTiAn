@@ -29,7 +29,7 @@ jobs:
 
       - name: Install ghr (needed to publish releases)
         run: |
-          go get github.com/tcnksm/ghr
+          go install github.com/tcnksm/ghr@latest
 
       - name: Checkout repository
         uses: actions/checkout@v2
