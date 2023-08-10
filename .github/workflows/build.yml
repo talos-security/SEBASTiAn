@@ -51,4 +51,4 @@ jobs:
 
       - name: Update the latest release
         run: |
-          ghr -t ${{ secrets.GITHUB_TOKEN }}  -b "${{ github.event.head_commit.message }}" -recreate 'SEBASTiAn "${{  github.ref_name }}"'  ./src/SEBASTiAn/excelify/xlsx/
+          ghr -t ${{ secrets.GITHUB_TOKEN }} -b "${{ github.event.head_commit.message }}" -recreate documentation-latest ./src/SEBASTiAn/excelify/xlsx/
