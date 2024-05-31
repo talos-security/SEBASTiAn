@@ -521,6 +521,22 @@ class TaintAnalysis(ABC):
                                             break
 
         def get_paths(method: MethodAnalysis) -> List[List[MethodAnalysis]]:
+            def dfs_paths(graph: nx.MultiDiGraph, start):
+                graph = graph.reverse()
+
+                degrees = {}
+                for n in graph.nodes:
+                    degrees[n] = graph.out_degree(n)
+
+                stack = [(start, [start])]
+                while stack:
+                    (vertex, path) = stack.pop()
+                    for next_node in graph.neighbors(vertex):
+                        if next_node not in path:
+                            yield (path + [next_node])[::-1]
+                            stack.append((next_node, path + [next_node]))
+
+
             if not method:
                 # There are no paths if the target method is not set.
                 return []
@@ -531,15 +547,15 @@ class TaintAnalysis(ABC):
             # Find all paths that have method destination. The smallest path is made by
             # the destination method only.
             paths_dict = {str(method): [method]}
-            for node in graph.nodes:
-                for new_path in nx.all_simple_paths(graph, node, method):
-                    # If a positive maximum path length was provided, crop the path to
-                    # the maximum path length, otherwise add the complete path.
-                    if self._max_depth > 0:
-                        path_to_add = new_path[-self._max_depth :]
-                    else:
-                        path_to_add = new_path
-                    paths_dict[str(path_to_add)[1:-1]] = path_to_add
+
+            for new_path in dfs_paths(graph, method):
+                # If a positive maximum path length was provided, crop the path to
+                # the maximum path length, otherwise add the complete path.
+                if self._max_depth > 0:
+                    path_to_add = new_path[-self._max_depth :]
+                else:
+                    path_to_add = new_path
+                paths_dict[str(path_to_add)[1:-1]] = path_to_add
 
             # Keep only the longest paths (remove all the sub-paths that are part of
             # longer paths).
