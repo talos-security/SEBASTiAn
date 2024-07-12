@@ -92,9 +92,9 @@ class RegisterAnalyzer(object):
                     and source_register[0] == Operand.REGISTER
                 ):
                     # Get the value from the other register (if available).
-                    self._register_values[
-                        destination_register[1]
-                    ] = self._register_values.get(source_register[1])
+                    self._register_values[destination_register[1]] = (
+                        self._register_values.get(source_register[1])
+                    )
 
             # [move-result], [move-result-wide], [move-result-object], [move-exception]
             elif 0x0A <= op_code <= 0x0D:
@@ -115,9 +115,9 @@ class RegisterAnalyzer(object):
                         res = self._apk_analysis.get_android_resources()
                         # The string corresponding to the id was retrieved from the
                         # resources, save its value into the corresponding register.
-                        self._register_values[
-                            register_number
-                        ] = res.get_resolved_res_configs(string_id)[0][1]
+                        self._register_values[register_number] = (
+                            res.get_resolved_res_configs(string_id)[0][1]
+                        )
                     except Exception:
                         pass
 
@@ -174,9 +174,9 @@ class RegisterAnalyzer(object):
                                 or "final" in field.get_access_flags_string()
                             )
                             if is_static_or_final_field:
-                                self._register_values[
-                                    register_number
-                                ] = field.get_init_value()
+                                self._register_values[register_number] = (
+                                    field.get_init_value()
+                                )
                             break
 
                     # Check the constructor of the class containing the field, if the
@@ -212,9 +212,9 @@ class RegisterAnalyzer(object):
                                         ra.load_instructions(
                                             method.get_instructions(), off
                                         )
-                                        self._register_values[
-                                            register_number
-                                        ] = ra.get_last_instruction_values()[0]
+                                        self._register_values[register_number] = (
+                                            ra.get_last_instruction_values()[0]
+                                        )
                                     off += i.get_length()
 
             # [new-instance]
@@ -535,7 +535,6 @@ class TaintAnalysis(ABC):
                         if next_node not in path:
                             yield (path + [next_node])[::-1]
                             stack.append((next_node, path + [next_node]))
-
 
             if not method:
                 # There are no paths if the target method is not set.
