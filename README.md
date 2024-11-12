@@ -84,7 +84,7 @@ $ cd src/
 $ # The following command has to be always executed from SEBASTiAn/src/ directory
 $ # or by adding SEBASTiAn/src/ directory to PYTHONPATH environment variable.
 $ python3 -m cli --help
-usage: python3 -m cli [-h] [-l {en,it}] [-i] [--fail-fast] [-t TIMEOUT]
+usage: python3 -m cli [-h] [-l {en,it}] [-i] [-gr] [--fail-fast] [-t TIMEOUT]
 ...
 ```
 
