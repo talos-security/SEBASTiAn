@@ -27,7 +27,24 @@ More details about **SEBASTiAn** can be found in the paper [SEBASTiAn: a Static 
 
 ## ❱ Installation
 
-The only requirement of this project is a working `Python 3` installation (along with
+SEBEASTiAn requires the `cmake` package to build the `lief` package. Depending on the operating system, you can install `cmake` as follows:
+
+### Ubuntu
+```Shell
+sudo apt install cmake
+```
+
+### Mac OS
+```Shell
+brew install cmake
+```
+
+### Windows
+Download and install the latest `cmake` version at https://cmake.org/download/    
+
+### Python Requirements
+
+SEBEASTiAn requires a working `Python 3` installation (along with
 its package manager `pip`). Depending on your operating system, you might need a
 different version of Python, as specified in the table below:
 
@@ -37,7 +54,10 @@ different version of Python, as specified in the table below:
 | **3.6** or lower   | :heavy_multiplication_x: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | **3.7**            | :heavy_check_mark:       | :warning:                | :heavy_check_mark:       |
 | **3.8**            | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
-| **3.9** or greater | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
+| **3.9** | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
+| **3.10** | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
+| **3.11** | :heavy_check_mark:       | :heavy_check_mark:       | :heavy_check_mark:       |
+| **3.12** or greater | :warning:       | :warning:       | :warning:       |
 
 :warning: might work by installing `lief` package manually, since there is no stable prebuilt
 wheels are currently available.
@@ -112,7 +132,7 @@ Let's start by looking at the help message:
 ```Shell
 
 $ SEBASTiAn --help
-SEBASTiAn [-h] [-l {en,it}] [-i] [--fail-fast] [-t TIMEOUT] [--keep-files] <FILE>
+SEBASTiAn [-h] [-l {en,it}] [-i] [-gr] [--fail-fast] [-t TIMEOUT] [--keep-files] <FILE>
 ```
 
 There is only one mandatory parameter: `<FILE>`, the path (relative or absolute) to
@@ -121,6 +141,8 @@ the apk file to analyze.
 * `-l {en,it}, --language {en,it}`, The language used for the vulnerabilities. Allowed values are: en, it.
 
 * `-i, --ignore-libs`, Ignore known third-party libraries during the vulnerability analysis (only for Android).
+
+* `-gr, --generate-report`: Generates a report of all identified vulnerabilities, saved as a JSON file.
 
 * `--fail-fast`, Make the entire analysis fail on the first failed vulnerability check.
   
