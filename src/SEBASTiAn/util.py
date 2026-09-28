@@ -136,7 +136,7 @@ def unpack_ios_app(ipa_path: str, working_dir: str):
                 )
 
                 for binary in fat_binary:
-                    if binary.header.cpu_type == lief.MachO.CPU_TYPES.ARM64:
+                    if binary.header.cpu_type == lief.MachO.Header.CPU_TYPE.ARM64:
                         # Overwrite the fat binary with the binary for arm64.
                         binary.write(bin_path)
                         break

@@ -325,7 +325,7 @@ class IOSAnalysis(BaseAnalysis):
         self.macho_object = parsed_binary.at(0)
         self.macho_symbols = "\n".join([x.name for x in self.macho_object.symbols])
 
-        self.bin_name = self.macho_object.name
+        self.bin_name = self.macho_object.fileset_name
         self.bin_arch = self.macho_object.header.cpu_type.name
 
     def finalize(self):
